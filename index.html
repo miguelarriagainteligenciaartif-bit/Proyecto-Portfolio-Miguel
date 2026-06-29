@@ -1666,7 +1666,6 @@ document.querySelectorAll('.project-card').forEach(card => {
 
     const audio = document.getElementById('bg-music');
     if (audio) {
-      try { if (localStorage.getItem('music-pref') === '0') return; } catch(e) {}
       audio.volume = 0;
       audio.play().then(() => {
         const t = setInterval(() => {
