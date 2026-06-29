@@ -639,6 +639,54 @@
     .stat-num { font-size: 1.7rem; }
   }
 
+  /* ─── ENTER SCREEN ──────────────────────────────────── */
+  #enter-screen {
+    position: fixed; inset: 0; z-index: 9999;
+    background: #0A0A0A;
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    gap: 16px;
+    transition: opacity 0.9s ease;
+  }
+  #enter-screen.exit { opacity: 0; pointer-events: none; }
+  .enter-avatar {
+    width: 80px; height: 80px; border-radius: 50%;
+    background-image: var(--photo); background-size: cover; background-position: center 25%;
+    border: 2px solid rgba(212,175,55,0.5);
+    margin-bottom: 8px;
+  }
+  .enter-name {
+    font-family: var(--font-head);
+    font-size: 1.6rem; color: var(--txt);
+    letter-spacing: 0.01em;
+  }
+  .enter-tag {
+    font-size: 0.75rem; color: var(--txt-muted);
+    letter-spacing: 0.12em; text-transform: uppercase;
+  }
+  .enter-divider {
+    width: 40px; height: 1px;
+    background: linear-gradient(90deg, transparent, var(--gold), transparent);
+    margin: 8px 0;
+  }
+  .enter-btn {
+    margin-top: 20px;
+    padding: 15px 48px;
+    background: transparent;
+    color: var(--gold);
+    font-family: var(--font-head);
+    font-size: 1rem;
+    border: 1.5px solid var(--gold);
+    border-radius: 4px;
+    cursor: pointer;
+    letter-spacing: 0.08em;
+    transition: background 0.25s, color 0.25s, box-shadow 0.25s, transform 0.2s;
+  }
+  .enter-btn:hover {
+    background: var(--gold); color: #0A0A0A;
+    box-shadow: 0 0 32px rgba(212,175,55,0.4);
+    transform: translateY(-2px);
+  }
+
   /* ─── MUSIC PLAYER ──────────────────────────────────── */
   #music-btn {
     position: fixed;
@@ -723,6 +771,15 @@
 </style>
 </head>
 <body>
+
+<!-- ═══ PANTALLA DE ENTRADA ════════════════════════════════ -->
+<div id="enter-screen">
+  <div class="enter-avatar"></div>
+  <p class="enter-name">Miguel Ángel Arriaga</p>
+  <p class="enter-tag">Portfolio Digital · 2026</p>
+  <div class="enter-divider"></div>
+  <button class="enter-btn" id="enter-btn">Entrar →</button>
+</div>
 
 <!-- Progress bar -->
 <div id="progress-bar"></div>
@@ -1100,7 +1157,7 @@
 </footer>
 
 <!-- ═══ MÚSICA ════════════════════════════════════════════ -->
-<audio id="bg-music" src="absolutesound-corporate-music-522798.mp3" autoplay muted loop preload="auto"></audio>
+<audio id="bg-music" src="absolutesound-corporate-music-522798.mp3" preload="auto" loop></audio>
 <button id="music-btn" aria-label="Reproducir música">♫</button>
 <span id="music-tooltip">Reproducir música</span>
 <span id="music-hint">♫ Activa la música</span>
@@ -1590,6 +1647,44 @@ document.querySelectorAll('.project-card').forEach(card => {
   window.addEventListener('scroll', () => { if (open) toggle(); }, { passive: true });
 })();
 
+/* ── Enter screen ───────────────────────────────────────── */
+(function enterScreen() {
+  const screen = document.getElementById('enter-screen');
+  const btn    = document.getElementById('enter-btn');
+  if (!screen || !btn) return;
+
+  try {
+    if (sessionStorage.getItem('entered') === '1') {
+      screen.style.display = 'none'; return;
+    }
+  } catch(e) {}
+
+  btn.addEventListener('click', () => {
+    try { sessionStorage.setItem('entered', '1'); } catch(e) {}
+    screen.classList.add('exit');
+    setTimeout(() => screen.remove(), 950);
+
+    const audio = document.getElementById('bg-music');
+    if (audio) {
+      try { if (localStorage.getItem('music-pref') === '0') return; } catch(e) {}
+      audio.volume = 0;
+      audio.play().then(() => {
+        const t = setInterval(() => {
+          audio.volume = Math.min(audio.volume + 0.025, 0.35);
+          if (audio.volume >= 0.35) { audio.volume = 0.35; clearInterval(t); }
+        }, 80);
+        const mb = document.getElementById('music-btn');
+        const mt = document.getElementById('music-tooltip');
+        const mh = document.getElementById('music-hint');
+        if (mb) { mb.textContent = '⏸'; mb.classList.add('playing'); mb.setAttribute('aria-label','Pausar música'); }
+        if (mt) mt.textContent = 'Pausar música';
+        if (mh) { mh.style.animation = 'none'; mh.style.opacity = '0'; }
+        try { localStorage.setItem('music-pref', '1'); } catch(e) {}
+      }).catch(() => {});
+    }
+  });
+})();
+
 /* ── Music player ───────────────────────────────────────── */
 (function musicPlayer() {
   const audio = document.getElementById('bg-music');
@@ -1600,54 +1695,28 @@ document.querySelectorAll('.project-card').forEach(card => {
 
   let playing = false;
 
-  function hideHint() {
-    if (hint) { hint.style.animation = 'none'; hint.style.opacity = '0'; }
-  }
-
   function setUI(val) {
     playing = val;
     btn.textContent = val ? '⏸' : '♫';
     btn.setAttribute('aria-label', val ? 'Pausar música' : 'Reproducir música');
-    tip.textContent = val ? 'Pausar música' : 'Reproducir música';
+    if (tip) tip.textContent = val ? 'Pausar música' : 'Reproducir música';
     btn.classList.toggle('playing', val);
-    if (val) hideHint();
+    if (val && hint) { hint.style.animation = 'none'; hint.style.opacity = '0'; }
     try { localStorage.setItem('music-pref', val ? '1' : '0'); } catch(e) {}
   }
 
-  function fadeIn() {
-    audio.volume = 0;
-    audio.muted = false;
-    const t = setInterval(() => {
-      audio.volume = Math.min(audio.volume + 0.025, 0.35);
-      if (audio.volume >= 0.35) { audio.volume = 0.35; clearInterval(t); }
-    }, 80);
-  }
-
-  // El audio arranca mudo via atributo HTML (siempre permitido por el navegador)
-  // Solo necesitamos desmutearlo — sin llamar a play() desde JS
-  setTimeout(() => {
-    try { if (localStorage.getItem('music-pref') === '0') { audio.pause(); return; } } catch(e) {}
-    if (!audio.paused) {
-      // Ya está reproduciendo mudo (autoplay funcionó) → desmutear con fade
-      setUI(true);
-      fadeIn();
-    } else {
-      // autoplay bloqueado incluso mudo (muy raro) → el hint guía al usuario
-    }
-  }, 1000);
-
-  // Botón: toggle manual
   btn.addEventListener('click', e => {
     e.stopPropagation();
-    hideHint();
     if (playing) {
       audio.pause(); setUI(false);
     } else {
-      audio.muted = false;
       audio.volume = 0.35;
       audio.play().then(() => setUI(true)).catch(() => {});
     }
   });
+
+  audio.addEventListener('play',  () => { if (!playing) setUI(true); });
+  audio.addEventListener('pause', () => { if (playing)  setUI(false); });
 })();
 </script>
 
