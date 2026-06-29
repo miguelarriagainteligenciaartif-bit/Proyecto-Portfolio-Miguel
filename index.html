@@ -601,10 +601,12 @@
     flex-direction: column; gap: 0;
     transform: translateY(-8px);
     opacity: 0;
+    pointer-events: none;
     transition: opacity 0.25s, transform 0.25s;
   }
   #mobile-nav.open {
     opacity: 1; transform: translateY(0);
+    pointer-events: auto;
   }
   #mobile-nav a {
     display: block; padding: 14px 0;
