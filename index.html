@@ -1584,19 +1584,19 @@ document.querySelectorAll('.project-card').forEach(card => {
     try { localStorage.setItem('music-pref', playing ? '1' : '0'); } catch(e) {}
   }
 
-  // Arranca sola con el primer gesto del usuario (scroll, mouse, tecla, touch)
+  // Chrome solo permite audio tras click, keydown, mousedown o touchend
+  // scroll/mousemove están bloqueados por la política de autoplay
   function autoStart() {
     if (autoStarted) return;
-    // No arrancar si el usuario la pausó manualmente antes
     try { if (localStorage.getItem('music-pref') === '0') return; } catch(e) {}
     autoStarted = true;
     setPlaying(true);
-    ['scroll','mousemove','touchstart','keydown','click'].forEach(ev =>
+    ['click','keydown','mousedown','touchend'].forEach(ev =>
       window.removeEventListener(ev, autoStart)
     );
   }
-  ['scroll','mousemove','touchstart','keydown','click'].forEach(ev =>
-    window.addEventListener(ev, autoStart, { once: false, passive: true })
+  ['click','keydown','mousedown','touchend'].forEach(ev =>
+    window.addEventListener(ev, autoStart, { passive: true })
   );
 
   // Click manual en el botón: toggle play/pause y guarda preferencia
