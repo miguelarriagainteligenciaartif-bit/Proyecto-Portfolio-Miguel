@@ -1570,44 +1570,60 @@ document.querySelectorAll('.project-card').forEach(card => {
   const tip   = document.getElementById('music-tooltip');
   if (!audio || !btn) return;
 
-  audio.volume = 0.35;
   let playing = false;
-  let autoStarted = false;
 
-  function setPlaying(val) {
+  function setUI(val) {
     playing = val;
-    btn.textContent = playing ? '⏸' : '♫';
-    btn.setAttribute('aria-label', playing ? 'Pausar música' : 'Reproducir música');
-    tip.textContent = playing ? 'Pausar música' : 'Reproducir música';
-    btn.classList.toggle('playing', playing);
-    if (playing) { audio.play().catch(() => {}); } else { audio.pause(); }
-    try { localStorage.setItem('music-pref', playing ? '1' : '0'); } catch(e) {}
+    btn.textContent = val ? '⏸' : '♫';
+    btn.setAttribute('aria-label', val ? 'Pausar música' : 'Reproducir música');
+    tip.textContent = val ? 'Pausar música' : 'Reproducir música';
+    btn.classList.toggle('playing', val);
+    try { localStorage.setItem('music-pref', val ? '1' : '0'); } catch(e) {}
   }
 
-  // Chrome solo permite audio tras click, keydown, mousedown o touchend
-  // scroll/mousemove están bloqueados por la política de autoplay
-  function autoStart() {
-    if (autoStarted) return;
+  function fadeIn() {
+    audio.muted = false;
+    audio.volume = 0;
+    const t = setInterval(() => {
+      audio.volume = Math.min(audio.volume + 0.02, 0.35);
+      if (audio.volume >= 0.35) { audio.volume = 0.35; clearInterval(t); }
+    }, 80);
+  }
+
+  function tryAutoplay() {
     try { if (localStorage.getItem('music-pref') === '0') return; } catch(e) {}
-    autoStarted = true;
-    setPlaying(true);
-    ['click','keydown','mousedown','touchend'].forEach(ev =>
-      window.removeEventListener(ev, autoStart)
-    );
+    // Chrome siempre permite reproducción muda → luego desmuteamos
+    audio.muted = true;
+    audio.play()
+      .then(() => { setUI(true); fadeIn(); })
+      .catch(() => {
+        // Falló incluso mudo → esperar primer click real
+        audio.muted = false;
+        const unlock = () => {
+          audio.play().then(() => { setUI(true); fadeIn(); }).catch(() => {});
+          ['click','touchend','keydown'].forEach(ev => window.removeEventListener(ev, unlock));
+        };
+        ['click','touchend','keydown'].forEach(ev =>
+          window.addEventListener(ev, unlock, { passive: true })
+        );
+      });
   }
-  ['click','keydown','mousedown','touchend'].forEach(ev =>
-    window.addEventListener(ev, autoStart, { passive: true })
-  );
 
-  // Click manual en el botón: toggle play/pause y guarda preferencia
-  btn.addEventListener('click', (e) => {
+  // Botón: toggle manual
+  btn.addEventListener('click', e => {
     e.stopPropagation();
-    autoStarted = true; // evita que autoStart lo reactive
-    setPlaying(!playing);
+    if (playing) {
+      audio.pause(); setUI(false);
+    } else {
+      audio.muted = false;
+      audio.play().then(() => { setUI(true); }).catch(() => {});
+    }
   });
 
-  // Loop manual (loop attr no siempre funciona con autoplay policy)
   audio.addEventListener('ended', () => { audio.currentTime = 0; audio.play().catch(() => {}); });
+
+  // Intentar arrancar 1s después de que cargue la página
+  setTimeout(tryAutoplay, 1000);
 })();
 </script>
 
