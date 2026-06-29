@@ -563,6 +563,62 @@
     .modal-body { padding: 20px 20px 24px; }
     .modal-title { font-size: 1.3rem; }
   }
+
+  /* ─── MUSIC PLAYER ──────────────────────────────────── */
+  #music-btn {
+    position: fixed;
+    bottom: 28px;
+    left: 28px;
+    z-index: 999;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: rgba(10,10,10,0.85);
+    border: 1.5px solid var(--gold);
+    color: var(--gold);
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 0 16px rgba(212,175,55,0.25);
+    transition: box-shadow 0.3s, transform 0.2s, background 0.3s;
+    outline: none;
+  }
+  #music-btn:hover {
+    box-shadow: 0 0 28px rgba(212,175,55,0.5);
+    transform: scale(1.1);
+  }
+  #music-btn.playing {
+    animation: music-pulse 2.4s ease-in-out infinite;
+  }
+  @keyframes music-pulse {
+    0%, 100% { box-shadow: 0 0 14px rgba(212,175,55,0.3); }
+    50%       { box-shadow: 0 0 30px rgba(212,175,55,0.7); }
+  }
+  #music-tooltip {
+    position: fixed;
+    bottom: 86px;
+    left: 28px;
+    background: rgba(10,10,10,0.9);
+    border: 1px solid var(--gold);
+    color: var(--gold);
+    font-size: 11px;
+    padding: 5px 10px;
+    border-radius: 6px;
+    pointer-events: none;
+    opacity: 0;
+    transform: translateY(6px);
+    transition: opacity 0.2s, transform 0.2s;
+    white-space: nowrap;
+    font-family: var(--font-body);
+  }
+  #music-btn:hover + #music-tooltip,
+  #music-btn:focus + #music-tooltip {
+    opacity: 1;
+    transform: translateY(0);
+  }
 </style>
 </head>
 <body>
@@ -931,6 +987,11 @@
 <footer id="footer">
   © 2026 <strong>Miguel Ángel Arriaga</strong> · MAIA · Disciplina · Proceso · Consistencia
 </footer>
+
+<!-- ═══ MÚSICA ════════════════════════════════════════════ -->
+<audio id="bg-music" src="absolutesound-corporate-music-522798.mp3" preload="none"></audio>
+<button id="music-btn" aria-label="Reproducir música">♫</button>
+<span id="music-tooltip">Reproducir música</span>
 
 <!-- ═══════════════ SCRIPTS ═══════════════════════════════════ -->
 <script>
@@ -1390,6 +1451,54 @@ document.querySelectorAll('.project-card').forEach(card => {
     if (e.key === 'Escape' && overlay.classList.contains('open')) close();
   });
 })();
+
+/* ── Music player ───────────────────────────────────────── */
+(function musicPlayer() {
+  const audio = document.getElementById('bg-music');
+  const btn   = document.getElementById('music-btn');
+  const tip   = document.getElementById('music-tooltip');
+  if (!audio || !btn) return;
+
+  audio.volume = 0.35;
+  let playing = false;
+  let autoStarted = false;
+
+  function setPlaying(val) {
+    playing = val;
+    btn.textContent = playing ? '⏸' : '♫';
+    btn.setAttribute('aria-label', playing ? 'Pausar música' : 'Reproducir música');
+    tip.textContent = playing ? 'Pausar música' : 'Reproducir música';
+    btn.classList.toggle('playing', playing);
+    if (playing) { audio.play().catch(() => {}); } else { audio.pause(); }
+    try { localStorage.setItem('music-pref', playing ? '1' : '0'); } catch(e) {}
+  }
+
+  // Arranca sola con el primer gesto del usuario (scroll, mouse, tecla, touch)
+  function autoStart() {
+    if (autoStarted) return;
+    // No arrancar si el usuario la pausó manualmente antes
+    try { if (localStorage.getItem('music-pref') === '0') return; } catch(e) {}
+    autoStarted = true;
+    setPlaying(true);
+    ['scroll','mousemove','touchstart','keydown','click'].forEach(ev =>
+      window.removeEventListener(ev, autoStart)
+    );
+  }
+  ['scroll','mousemove','touchstart','keydown','click'].forEach(ev =>
+    window.addEventListener(ev, autoStart, { once: false, passive: true })
+  );
+
+  // Click manual en el botón: toggle play/pause y guarda preferencia
+  btn.addEventListener('click', (e) => {
+    e.stopPropagation();
+    autoStarted = true; // evita que autoStart lo reactive
+    setPlaying(!playing);
+  });
+
+  // Loop manual (loop attr no siempre funciona con autoplay policy)
+  audio.addEventListener('ended', () => { audio.currentTime = 0; audio.play().catch(() => {}); });
+})();
 </script>
+
 </body>
 </html>
