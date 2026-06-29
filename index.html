@@ -694,6 +694,32 @@
     opacity: 1;
     transform: translateY(0);
   }
+  #music-hint {
+    position: fixed;
+    bottom: 24px;
+    left: 80px;
+    background: rgba(10,10,10,0.92);
+    border: 1px solid rgba(212,175,55,0.5);
+    color: var(--gold);
+    font-size: 12px;
+    padding: 7px 13px;
+    border-radius: 20px;
+    pointer-events: none;
+    font-family: var(--font-body);
+    white-space: nowrap;
+    animation: hintAppear 0.5s ease 1.5s both, hintFade 0.5s ease 6s both;
+    z-index: 998;
+  }
+  #music-hint::before {
+    content: '';
+    position: absolute;
+    left: -6px; top: 50%;
+    transform: translateY(-50%);
+    border: 5px solid transparent;
+    border-right-color: rgba(212,175,55,0.5);
+  }
+  @keyframes hintAppear { from { opacity:0; transform:translateX(-8px); } to { opacity:1; transform:translateX(0); } }
+  @keyframes hintFade   { from { opacity:1; } to { opacity:0; pointer-events:none; } }
 </style>
 </head>
 <body>
@@ -1074,9 +1100,10 @@
 </footer>
 
 <!-- ═══ MÚSICA ════════════════════════════════════════════ -->
-<audio id="bg-music" src="absolutesound-corporate-music-522798.mp3" preload="none"></audio>
+<audio id="bg-music" src="absolutesound-corporate-music-522798.mp3" autoplay muted loop preload="auto"></audio>
 <button id="music-btn" aria-label="Reproducir música">♫</button>
 <span id="music-tooltip">Reproducir música</span>
+<span id="music-hint">♫ Activa la música</span>
 
 <!-- ═══════════════ SCRIPTS ═══════════════════════════════════ -->
 <script>
@@ -1568,9 +1595,14 @@ document.querySelectorAll('.project-card').forEach(card => {
   const audio = document.getElementById('bg-music');
   const btn   = document.getElementById('music-btn');
   const tip   = document.getElementById('music-tooltip');
+  const hint  = document.getElementById('music-hint');
   if (!audio || !btn) return;
 
   let playing = false;
+
+  function hideHint() {
+    if (hint) { hint.style.animation = 'none'; hint.style.opacity = '0'; }
+  }
 
   function setUI(val) {
     playing = val;
@@ -1578,52 +1610,44 @@ document.querySelectorAll('.project-card').forEach(card => {
     btn.setAttribute('aria-label', val ? 'Pausar música' : 'Reproducir música');
     tip.textContent = val ? 'Pausar música' : 'Reproducir música';
     btn.classList.toggle('playing', val);
+    if (val) hideHint();
     try { localStorage.setItem('music-pref', val ? '1' : '0'); } catch(e) {}
   }
 
   function fadeIn() {
-    audio.muted = false;
     audio.volume = 0;
+    audio.muted = false;
     const t = setInterval(() => {
-      audio.volume = Math.min(audio.volume + 0.02, 0.35);
+      audio.volume = Math.min(audio.volume + 0.025, 0.35);
       if (audio.volume >= 0.35) { audio.volume = 0.35; clearInterval(t); }
     }, 80);
   }
 
-  function tryAutoplay() {
-    try { if (localStorage.getItem('music-pref') === '0') return; } catch(e) {}
-    // Chrome siempre permite reproducción muda → luego desmuteamos
-    audio.muted = true;
-    audio.play()
-      .then(() => { setUI(true); fadeIn(); })
-      .catch(() => {
-        // Falló incluso mudo → esperar primer click real
-        audio.muted = false;
-        const unlock = () => {
-          audio.play().then(() => { setUI(true); fadeIn(); }).catch(() => {});
-          ['click','touchend','keydown'].forEach(ev => window.removeEventListener(ev, unlock));
-        };
-        ['click','touchend','keydown'].forEach(ev =>
-          window.addEventListener(ev, unlock, { passive: true })
-        );
-      });
-  }
+  // El audio arranca mudo via atributo HTML (siempre permitido por el navegador)
+  // Solo necesitamos desmutearlo — sin llamar a play() desde JS
+  setTimeout(() => {
+    try { if (localStorage.getItem('music-pref') === '0') { audio.pause(); return; } } catch(e) {}
+    if (!audio.paused) {
+      // Ya está reproduciendo mudo (autoplay funcionó) → desmutear con fade
+      setUI(true);
+      fadeIn();
+    } else {
+      // autoplay bloqueado incluso mudo (muy raro) → el hint guía al usuario
+    }
+  }, 1000);
 
   // Botón: toggle manual
   btn.addEventListener('click', e => {
     e.stopPropagation();
+    hideHint();
     if (playing) {
       audio.pause(); setUI(false);
     } else {
       audio.muted = false;
-      audio.play().then(() => { setUI(true); }).catch(() => {});
+      audio.volume = 0.35;
+      audio.play().then(() => setUI(true)).catch(() => {});
     }
   });
-
-  audio.addEventListener('ended', () => { audio.currentTime = 0; audio.play().catch(() => {}); });
-
-  // Intentar arrancar 1s después de que cargue la página
-  setTimeout(tryAutoplay, 1000);
 })();
 </script>
 
