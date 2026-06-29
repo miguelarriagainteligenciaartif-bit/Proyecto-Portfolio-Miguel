@@ -1,0 +1,142 @@
+{
+  "generated": "2026-06-28",
+  "owner": "Miguel Ángel Arriaga Bringas",
+  "projects": [
+    {
+      "id": 1,
+      "name": "BOIM Football Boutique",
+      "type": "Branding + Web Premium",
+      "url": "https://boim-boutique.netlify.app/",
+      "screenshots": ["00-BOIM-hero.png", "01-BOIM-talentos.png"],
+      "stack": "HTML · CSS · Diseño de marca · Netlify",
+      "description": "Agencia de representación deportiva de élite. Identidad visual, dossiers de jugadores y estrategia digital. Portfolio: Alberto Moleiro €40M, Ayoze Pérez €6M, Loïc Williams €1.2M.",
+      "highlight": "€47.2M valor portfolio representado"
+    },
+    {
+      "id": 2,
+      "name": "Escuela de Ejecución",
+      "type": "Plataforma Educativa + SaaS",
+      "url": "https://escuela-de-ejecucion.vercel.app/",
+      "screenshots": ["02-EscuelaEjecucion-landing.png", "03-EscuelaEjecucion-dashboard.png"],
+      "stack": "React · Supabase · Vercel · Tailwind",
+      "description": "Academia de coaching mental para traders. Dashboard con herramientas: Duoracha, Diario de Trading, Backtesting, Planificación Semanal y Meditaciones.",
+      "highlight": "5 módulos de entrenamiento mental para traders"
+    },
+    {
+      "id": 3,
+      "name": "EDGECORE — App Checklist",
+      "type": "App SaaS · Checklist Pre-Trading",
+      "url": "https://edgecore-checklist.lovable.app",
+      "screenshots": ["04-EDGECORE-checklist-app.png"],
+      "stack": "React · Supabase · Lovable · Tailwind",
+      "description": "Checklist pre-trading de 8 pasos para traders de NAS100. Sistema de preparación mental y técnica con registro histórico y estadísticas por sesión.",
+      "highlight": "8 fases de preparación antes de operar"
+    },
+    {
+      "id": 4,
+      "name": "EDGECORE — SaaS Full Stack",
+      "type": "SaaS Full Stack · Trading Analytics",
+      "url": "https://edgecore-nasdaq-trader.lovable.app",
+      "screenshots": ["05-EDGECORE-SaaS-auth.png", "06-EDGECORE-SaaS-dashboard.png"],
+      "stack": "React · Supabase · Lovable · Auth · Dashboard",
+      "description": "Plataforma completa de análisis de trading para NAS100/Nasdaq 100. Dashboard con P&L, Win Rate, Equity Curve, Backtesting, X5 Simulator, Flip Rotacional y Checklist integrado.",
+      "highlight": "$59,000 P&L · 109 operaciones registradas · Modelo M3"
+    },
+    {
+      "id": 5,
+      "name": "Quantum Era — Landing",
+      "type": "Landing Page · Academia de Trading",
+      "url": "https://quantumera-academy.com/",
+      "screenshots": ["07-QuantumEra-landing.png"],
+      "stack": "React · Tailwind · Netlify · Animaciones CSS",
+      "description": "Landing de captación para academia de trading profesional de futuros NAS100. Metodología institucional ICT/SMC. Con partículas animadas y esfera 3D interactiva.",
+      "highlight": "Academia de trading con metodología institucional NQ"
+    },
+    {
+      "id": 6,
+      "name": "Quantum Era — SaaS Full Stack",
+      "type": "SaaS Full Stack · Trading Journal",
+      "url": "https://quantum-era.lovable.app",
+      "screenshots": ["08-QuantumEra-SaaS-dashboard.png"],
+      "stack": "React · Supabase · Lovable · Full Auth · Multi-cuenta",
+      "description": "Plataforma SaaS completa para Quantum Era con journal de trading, análisis estadístico, cuentas fondeadas, backtesting, racha tracker, optimización y simulaciones.",
+      "highlight": "$180K P&L · 519 operaciones · Win Rate 45.3% · Modelo M3"
+    },
+    {
+      "id": 7,
+      "name": "Las Croquetas de María — Web",
+      "type": "Landing Page · E-commerce Artesanal",
+      "url": "https://lascroquetasdemaria.netlify.app/",
+      "screenshots": ["09-Croquetas-landing.png"],
+      "stack": "React · Tailwind · Netlify · Diseño editorial",
+      "description": "Web de marca artesanal con identidad premium para negocio familiar de croquetas en Las Palmas de Gran Canaria. Hero fotográfico full-screen, catálogo y sistema de pedidos.",
+      "highlight": "Marca artesanal premium — Las Palmas de Gran Canaria"
+    },
+    {
+      "id": 8,
+      "name": "Las Croquetas de María — ERP",
+      "type": "ERP Artesanal · Gestión Integral",
+      "url": "https://erp-croquetasdemaria.lovable.app",
+      "screenshots": ["10-Croquetas-ERP-auth.png", "11-Croquetas-ERP-dashboard.png"],
+      "stack": "React · Supabase · Lovable · Full Auth",
+      "description": "ERP completo para negocio artesanal: escandallos, ingredientes, compras, producción por lotes, ventas e informes de rentabilidad. Sistema de gestión integral para F&B.",
+      "highlight": "ERP con escandallos, producción, compras y ventas integradas"
+    },
+    {
+      "id": 9,
+      "name": "Miguel Ángel Arriaga — Web Personal",
+      "type": "Personal Brand · Hub Digital",
+      "url": "https://miguelarriaga.com/",
+      "screenshots": ["12-MiguelArriaga-web.png"],
+      "stack": "React · Tailwind · Lovable · Diseño personal",
+      "description": "Web de marca personal que consolida CEO de MAIA y cofundador de Quantum Era. Disciplina · Proceso · Consistencia. Hub central de autoridad profesional.",
+      "highlight": "Hub central de marca personal — CEO & Trader Profesional"
+    },
+    {
+      "id": 10,
+      "name": "MAIA — Landing Page Corporativa",
+      "type": "Corporate Web · AI Consultancy",
+      "url": "https://maia-llc.com/",
+      "screenshots": ["13-MAIA-landing.png"],
+      "stack": "React · Tailwind · Lovable · Bilingüe ES/EN",
+      "description": "Web corporativa para consultoría de IA empresarial. Agentes autónomos que operan y escalan negocios. Sistemas de IA 24/7 con resultados medibles desde el primer mes.",
+      "highlight": "Consultoría IA para empresas — Agentes autónomos 24/7"
+    },
+    {
+      "id": 11,
+      "name": "Structure Academy — Landing + SaaS",
+      "type": "SaaS Full Stack · Academia de Trading",
+      "url": "https://saas-structureacademy.vercel.app/",
+      "screenshots": ["14-StructureAcademy-landing.png", "15-StructureAcademy-auth.png", "16-StructureAcademy-dashboard.png"],
+      "stack": "React · Supabase · Vercel · Full Auth · Panel Admin",
+      "description": "Plataforma SaaS completa para academia de trading. Landing, auth, dashboard con P&L $74K, backtesting, racha tracker, Structure Lab, optimización, simulaciones y panel admin.",
+      "highlight": "$74K P&L · 316 operaciones · Panel Admin incluido"
+    },
+    {
+      "id": 12,
+      "name": "The Cashtor Mentor",
+      "type": "SaaS Full Stack · Trading Mentor Platform",
+      "url": "https://thecashtormentor.lovable.app",
+      "screenshots": ["17-CashtorMentor-dashboard.png", "18-CashtorMentor-auth.png"],
+      "stack": "React · Supabase · Lovable · Full Auth · Gamificación",
+      "description": "Plataforma de mentoría de trading con sistema de niveles gamificado. Dashboard con Win Rate 70%, Profit Factor 4.70, Expected Value +$186.75/trade. Multi-cuenta con brokers reales.",
+      "highlight": "Win Rate 70% · Profit Factor 4.70 · Sistema de niveles gamificado"
+    }
+  ],
+  "urls_live": [
+    "https://boim-boutique.netlify.app/",
+    "https://escuela-de-ejecucion.vercel.app/",
+    "https://quantumera-academy.com/",
+    "https://lascroquetasdemaria.netlify.app/",
+    "https://miguelarriaga.com/",
+    "https://maia-llc.com/",
+    "https://saas-structureacademy.vercel.app/"
+  ],
+  "urls_lovable": [
+    "https://edgecore-checklist.lovable.app",
+    "https://edgecore-nasdaq-trader.lovable.app",
+    "https://quantum-era.lovable.app",
+    "https://erp-croquetasdemaria.lovable.app",
+    "https://thecashtormentor.lovable.app"
+  ]
+}

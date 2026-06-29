@@ -1,0 +1,1395 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Miguel Ángel Arriaga — Productos Digitales que Ejecutan</title>
+<meta name="description" content="CEO de MAIA · Cofundador de Quantum Era · Constructor de productos digitales con IA. 12 proyectos reales. Clientes reales. Resultados medibles.">
+<style>
+  /* ─── TOKENS ─────────────────────────────────────────── */
+  :root {
+    --bg:        #0A0A0A;
+    --bg-card:   #111111;
+    --bg-light:  #131313;
+    --border:    #1E1E1E;
+    --accent:    #FF6B35;
+    --gold:      #D4AF37;
+    --gold-dim:  rgba(212,175,55,0.2);
+    --gold-glow: rgba(212,175,55,0.15);
+    --txt:       #F5F5F5;
+    --txt-muted: #888888;
+    --font-head: Georgia, 'Times New Roman', serif;
+    --font-body: Calibri, system-ui, -apple-system, sans-serif;
+    --radius:    12px;
+    --transition: 0.4s cubic-bezier(0.23,1,0.32,1);
+    --photo: url('data:image/jpeg;base64,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');
+  }
+
+  /* ─── RESET ──────────────────────────────────────────── */
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; cursor: none; }
+  body {
+    background: var(--bg);
+    color: var(--txt);
+    font-family: var(--font-body);
+    line-height: 1.6;
+    overflow-x: hidden;
+  }
+  a { text-decoration: none; color: inherit; }
+  img { display: block; width: 100%; }
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
+  }
+
+  /* ─── SCROLL PROGRESS ───────────────────────────────── */
+  #progress-bar {
+    position: fixed; top: 0; left: 0; height: 3px; width: 0%;
+    background: linear-gradient(90deg, var(--gold), var(--accent));
+    z-index: 1000; transition: width 0.1s linear;
+    box-shadow: 0 0 8px var(--gold);
+  }
+
+  /* ─── CUSTOM CURSOR ─────────────────────────────────── */
+  #cursor {
+    position: fixed; width: 14px; height: 14px;
+    background: var(--accent); border-radius: 50%;
+    pointer-events: none; z-index: 9999;
+    transform: translate(-50%,-50%);
+    transition: width 0.2s, height 0.2s, background 0.2s;
+    mix-blend-mode: normal;
+    box-shadow: 0 0 10px rgba(255,107,53,0.6);
+  }
+  #cursor-ring {
+    position: fixed; width: 36px; height: 36px;
+    border: 1.5px solid rgba(255,107,53,0.5);
+    border-radius: 50%; pointer-events: none;
+    z-index: 9998; transform: translate(-50%,-50%);
+    transition: width 0.3s, height 0.3s;
+  }
+  body:has(a:hover) #cursor, body:has(button:hover) #cursor { width: 20px; height: 20px; background: var(--gold); }
+
+  /* ─── NAVBAR ─────────────────────────────────────────── */
+  #navbar {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 900;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0 48px; height: 64px;
+    transition: background 0.4s, backdrop-filter 0.4s, border-bottom 0.4s;
+  }
+  #navbar.scrolled {
+    background: rgba(10,10,10,0.85);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border-bottom: 1px solid var(--border);
+  }
+  .nav-logo {
+    display: flex; align-items: center; gap: 11px;
+    font-family: var(--font-head);
+    font-size: 1.05rem;
+    color: var(--gold);
+    letter-spacing: 0.02em;
+  }
+  .nav-avatar {
+    width: 34px; height: 34px; border-radius: 50%;
+    background-image: var(--photo); background-size: cover;
+    background-position: center 25%;
+    border: 1.5px solid rgba(212,175,55,0.6);
+    flex-shrink: 0;
+  }
+  .nav-links { display: flex; gap: 32px; }
+  .nav-links a {
+    font-size: 0.85rem; letter-spacing: 0.05em; text-transform: uppercase;
+    color: var(--txt); transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--gold); }
+
+  /* ─── HERO ───────────────────────────────────────────── */
+  #hero {
+    position: relative; min-height: 100vh;
+    display: flex; align-items: center; justify-content: center;
+    overflow: hidden;
+  }
+  /* Velo radial sutil — oscurece detrás del texto para legibilidad,
+     dejando la constelación visible en los bordes */
+  .hero-veil {
+    position: absolute; inset: 0; z-index: 2; pointer-events: none;
+    background: radial-gradient(ellipse 65% 55% at 50% 50%, rgba(10,10,10,0.74) 0%, rgba(10,10,10,0.30) 45%, rgba(10,10,10,0) 80%);
+  }
+  #particles-canvas {
+    position: absolute; inset: 0; width: 100%; height: 100%;
+    z-index: 1; pointer-events: none;
+  }
+  .hero-inner {
+    position: relative; z-index: 3;
+    width: 100%; max-width: 1000px; margin: 0 auto; padding: 120px 48px 80px;
+    text-align: center;
+  }
+  .hero-badge {
+    position: absolute; top: 84px; right: 48px; z-index: 5;
+    display: inline-flex; align-items: center; gap: 8px;
+    font-size: 0.72rem; letter-spacing: 0.1em; text-transform: uppercase;
+    color: #F7E08C; border: 1px solid rgba(212,175,55,0.5);
+    padding: 7px 15px; border-radius: 20px;
+    background: rgba(20,15,5,0.55);
+    backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
+    box-shadow: 0 2px 16px rgba(0,0,0,0.4);
+  }
+  .hero-badge::before {
+    content: ''; width: 6px; height: 6px; border-radius: 50%;
+    background: var(--gold); box-shadow: 0 0 8px var(--gold);
+  }
+  .hero-kicker {
+    font-size: 0.75rem; letter-spacing: 0.15em; text-transform: uppercase;
+    color: var(--accent); margin-bottom: 28px;
+    display: flex; align-items: center; justify-content: center; gap: 10px;
+    opacity: 0; animation: fadeUp 0.7s ease forwards 0.15s;
+  }
+  .hero-kicker::before {
+    content: ''; display: block; width: 24px; height: 2px; background: var(--accent);
+  }
+  .hero-title {
+    font-family: var(--font-head);
+    font-size: clamp(2.9rem, 8.5vw, 6.4rem);
+    font-weight: 400; line-height: 1.04;
+    letter-spacing: -0.015em;
+    color: var(--txt); margin-bottom: 30px;
+  }
+  /* Reveal cinético línea a línea */
+  .reveal-line { display: block; overflow: hidden; padding-bottom: 0.05em; }
+  .reveal-line > span {
+    display: inline-block; transform: translateY(115%); opacity: 0;
+    animation: lineUp 1s cubic-bezier(0.22,1,0.36,1) forwards;
+  }
+  .reveal-line:nth-child(1) > span { animation-delay: 0.35s; }
+  .reveal-line:nth-child(2) > span { animation-delay: 0.55s; }
+  @keyframes lineUp { to { transform: translateY(0); opacity: 1; } }
+  /* Texto dorado con brillo recorriéndolo */
+  .gold-text {
+    background: linear-gradient(100deg, #D4AF37 0%, #F7E08C 22%, #FF6B35 50%, #D4AF37 74%, #F7E08C 100%);
+    background-size: 220% auto;
+    -webkit-background-clip: text; background-clip: text;
+    -webkit-text-fill-color: transparent; color: transparent;
+    animation: sheen 7s linear infinite;
+  }
+  @keyframes sheen { to { background-position: 220% center; } }
+  @keyframes fadeUp { from { opacity: 0; transform: translateY(22px); } to { opacity: 1; transform: translateY(0); } }
+  .hero-sub {
+    font-size: 1.15rem; color: var(--txt-muted); margin: 0 auto 42px;
+    max-width: 540px; line-height: 1.7;
+    opacity: 0; animation: fadeUp 0.8s ease forwards 0.95s;
+  }
+  .hero-ctas {
+    display: flex; gap: 16px; flex-wrap: wrap; justify-content: center;
+    opacity: 0; animation: fadeUp 0.8s ease forwards 1.15s;
+  }
+  .btn-primary {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: var(--accent); color: #fff;
+    padding: 14px 28px; border-radius: 6px;
+    font-size: 0.9rem; font-weight: 600; letter-spacing: 0.03em;
+    transition: background var(--transition), transform 0.2s, box-shadow 0.2s;
+    cursor: none;
+  }
+  .btn-primary:hover {
+    background: #ff8a5c; transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(255,107,53,0.4);
+  }
+  .btn-ghost {
+    display: inline-flex; align-items: center; gap: 8px;
+    border: 1px solid var(--gold-dim); color: var(--gold);
+    padding: 14px 28px; border-radius: 6px;
+    font-size: 0.9rem; font-weight: 500; letter-spacing: 0.03em;
+    transition: border-color 0.2s, background 0.2s, transform 0.2s;
+    cursor: none;
+  }
+  .btn-ghost:hover {
+    border-color: var(--gold); background: rgba(212,175,55,0.07);
+    transform: translateY(-2px);
+  }
+
+  /* ─── STATS BAR ──────────────────────────────────────── */
+  #stats {
+    background: var(--bg-light);
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    padding: 40px 48px;
+  }
+  .stats-inner {
+    max-width: 1200px; margin: 0 auto;
+    display: flex; justify-content: space-around; flex-wrap: wrap; gap: 32px;
+  }
+  .stat-item { text-align: center; }
+  .stat-number {
+    font-family: var(--font-head); font-size: 2.8rem;
+    color: var(--gold); font-weight: 400;
+    display: block; line-height: 1;
+  }
+  .stat-label {
+    font-size: 0.78rem; letter-spacing: 0.1em; text-transform: uppercase;
+    color: var(--txt-muted); margin-top: 6px; display: block;
+  }
+
+  /* ─── PROJECTS ───────────────────────────────────────── */
+  #projects { padding: 100px 48px; max-width: 1200px; margin: 0 auto; }
+  .section-header { margin-bottom: 64px; }
+  .section-kicker {
+    font-size: 0.72rem; letter-spacing: 0.15em; text-transform: uppercase;
+    color: var(--accent); margin-bottom: 12px;
+    display: flex; align-items: center; gap: 10px;
+  }
+  .section-kicker::before {
+    content: ''; width: 20px; height: 2px; background: var(--accent);
+  }
+  .section-title {
+    font-family: var(--font-head); font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 400; color: var(--txt);
+  }
+
+  .projects-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+  }
+
+  /* Card */
+  .project-card {
+    background: rgba(255,255,255,0.03);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid var(--gold-dim);
+    border-radius: var(--radius);
+    overflow: hidden;
+    position: relative;
+    cursor: none;
+    transform-style: preserve-3d;
+    transition: transform var(--transition), box-shadow var(--transition), border-color var(--transition);
+
+    /* scroll-reveal initial state */
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  .project-card.revealed { opacity: 1; transform: translateY(0); }
+  .project-card::before {
+    content: ''; position: absolute; top: 0; left: 0;
+    width: 3px; height: 100%;
+    background: linear-gradient(180deg, var(--gold), rgba(212,175,55,0.2));
+    z-index: 2;
+  }
+  .project-card:hover {
+    transform: rotateY(3deg) rotateX(2deg) translateY(-8px);
+    box-shadow: 0 20px 60px var(--gold-glow), 0 4px 20px rgba(0,0,0,0.5);
+    border-color: rgba(212,175,55,0.5);
+  }
+
+  .card-img-wrap {
+    height: 200px; overflow: hidden; position: relative;
+  }
+  .card-img-wrap img {
+    height: 100%; object-fit: cover;
+    transition: transform 0.6s cubic-bezier(0.23,1,0.32,1);
+  }
+  .project-card:hover .card-img-wrap img { transform: scale(1.06); }
+
+  .card-body { padding: 24px 24px 20px 28px; }
+  .card-badge {
+    display: inline-block; font-size: 0.68rem; letter-spacing: 0.08em;
+    text-transform: uppercase; color: var(--accent);
+    border: 1px solid rgba(255,107,53,0.3); padding: 3px 10px;
+    border-radius: 20px; margin-bottom: 12px;
+    background: rgba(255,107,53,0.07);
+  }
+  .card-name {
+    font-family: var(--font-head); font-size: 1.15rem;
+    color: var(--gold); margin-bottom: 10px; line-height: 1.3;
+  }
+  .card-desc {
+    font-size: 0.84rem; color: var(--txt-muted); margin-bottom: 14px; line-height: 1.6;
+  }
+  .card-highlight {
+    font-size: 0.8rem; color: var(--txt); margin-bottom: 16px;
+    padding: 8px 12px; background: rgba(212,175,55,0.06);
+    border-radius: 4px; border-left: 2px solid var(--gold);
+  }
+  .card-stack { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 20px; }
+  .pill {
+    font-size: 0.68rem; background: rgba(255,255,255,0.04);
+    border: 1px solid var(--border); padding: 3px 10px;
+    border-radius: 20px; color: var(--txt-muted); letter-spacing: 0.04em;
+  }
+  .card-cta {
+    display: inline-flex; align-items: center; gap: 6px;
+    font-size: 0.82rem; color: var(--accent); font-weight: 600;
+    letter-spacing: 0.05em; transition: gap 0.2s;
+    cursor: none;
+  }
+  .card-cta:hover { gap: 10px; }
+
+  /* ─── ABOUT ──────────────────────────────────────────── */
+  #about {
+    padding: 100px 48px;
+    border-top: 1px solid var(--border);
+    overflow: hidden;
+  }
+  .about-inner {
+    max-width: 1200px; margin: 0 auto;
+    display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center;
+  }
+  .about-left .section-title { color: var(--gold); margin-bottom: 0; }
+  /* Retrato con aro dorado */
+  .about-photo-wrap { position: relative; width: 100%; max-width: 340px; margin-top: 28px; }
+  .about-photo {
+    width: 100%; aspect-ratio: 4 / 5; border-radius: 14px;
+    background-image: var(--photo); background-size: cover; background-position: center 20%;
+    border: 1px solid rgba(212,175,55,0.5);
+    box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+  }
+  .about-photo-wrap::before {
+    content: ''; position: absolute; inset: -8px; border-radius: 18px;
+    border: 1px solid rgba(212,175,55,0.22); pointer-events: none;
+  }
+  .about-name {
+    font-family: var(--font-head); color: var(--gold);
+    font-size: 1.25rem; margin-top: 18px;
+  }
+  .about-tagline {
+    font-size: 0.8rem; letter-spacing: 0.08em; text-transform: uppercase;
+    color: var(--accent); margin-top: 4px;
+  }
+  .about-right { color: var(--txt-muted); font-size: 1.05rem; line-height: 1.9; }
+  .about-right strong { color: var(--txt); }
+  .about-items { margin-top: 32px; display: flex; flex-direction: column; gap: 14px; }
+  .about-item {
+    display: flex; align-items: center; gap: 16px;
+    font-size: 0.9rem;
+  }
+  .about-item::before {
+    content: ''; flex-shrink: 0; width: 3px; height: 24px;
+    background: var(--gold); border-radius: 2px;
+  }
+  .about-cta {
+    display: inline-flex; align-items: center; gap: 9px; margin-top: 32px;
+    border: 1px solid var(--gold-dim); color: var(--gold);
+    padding: 13px 26px; border-radius: 6px; cursor: pointer;
+    font-family: var(--font-body); font-size: 0.9rem; font-weight: 600; letter-spacing: 0.03em;
+    background: rgba(212,175,55,0.05);
+    transition: border-color 0.2s, background 0.2s, transform 0.2s;
+  }
+  .about-cta:hover {
+    border-color: var(--gold); background: rgba(212,175,55,0.12); transform: translateY(-2px);
+  }
+
+  /* ─── CTA FINAL ──────────────────────────────────────── */
+  #cta-final {
+    background: var(--bg-card);
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    padding: 100px 48px; text-align: center;
+  }
+  .cta-inner { max-width: 700px; margin: 0 auto; }
+  .cta-title {
+    font-family: var(--font-head); font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+    font-weight: 400; color: var(--txt); margin-bottom: 16px;
+  }
+  .cta-sub {
+    font-size: 1.05rem; color: var(--txt-muted); margin-bottom: 40px;
+  }
+
+  /* ─── FOOTER ─────────────────────────────────────────── */
+  #footer {
+    padding: 32px 48px; text-align: center;
+    font-size: 0.8rem; color: var(--txt-muted);
+    border-top: 1px solid var(--border);
+    letter-spacing: 0.06em;
+  }
+  #footer strong { color: var(--gold); }
+
+  /* ─── PARALLAX DATA ATTRS ────────────────────────────── */
+  [data-parallax] { will-change: transform; }
+
+  /* ─── CARD: badge "producto privado" + cursor ──────────── */
+  .project-card { cursor: pointer; }
+  .card-lock {
+    position: absolute; top: 10px; right: 10px; z-index: 3;
+    display: inline-flex; align-items: center; gap: 5px;
+    font-size: 0.62rem; letter-spacing: 0.06em; text-transform: uppercase;
+    color: #F7E08C; background: rgba(15,12,5,0.72);
+    border: 1px solid rgba(212,175,55,0.4); padding: 4px 9px; border-radius: 20px;
+    backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px);
+  }
+
+  /* ─── MODAL "VER POR DENTRO" ────────────────────────────── */
+  .modal-overlay {
+    position: fixed; inset: 0; z-index: 2000;
+    display: flex; align-items: center; justify-content: center; padding: 32px;
+    background: rgba(5,5,5,0.86); backdrop-filter: blur(7px); -webkit-backdrop-filter: blur(7px);
+    opacity: 0; pointer-events: none; transition: opacity 0.3s ease;
+  }
+  .modal-overlay.open { opacity: 1; pointer-events: auto; }
+  .modal {
+    width: min(1000px, 100%); max-height: 90vh; position: relative;
+    display: flex; flex-direction: column; overflow: hidden;
+    background: #0E0E0E; border: 1px solid rgba(212,175,55,0.28);
+    border-radius: 16px; box-shadow: 0 30px 80px rgba(0,0,0,0.6);
+    transform: translateY(22px) scale(0.97);
+    transition: transform 0.38s cubic-bezier(0.22,1,0.36,1);
+  }
+  .modal-overlay.open .modal { transform: none; }
+  .modal-close {
+    position: absolute; top: 14px; right: 14px; z-index: 6;
+    width: 38px; height: 38px; border-radius: 50%; cursor: pointer;
+    border: 1px solid var(--border); background: rgba(10,10,10,0.7);
+    color: var(--txt); font-size: 1rem; line-height: 1;
+    backdrop-filter: blur(6px); transition: background 0.2s, border-color 0.2s;
+  }
+  .modal-close:hover { background: rgba(255,107,53,0.18); border-color: var(--accent); }
+  .modal-media {
+    position: relative; background: #000; overflow: hidden;
+    aspect-ratio: 16 / 9; flex-shrink: 0;
+  }
+  .modal-media img {
+    width: 100%; height: 100%; object-fit: cover; object-position: top center; display: block;
+  }
+  .modal-lock {
+    position: absolute; top: 14px; left: 14px; z-index: 4;
+    display: none; align-items: center; gap: 6px;
+    font-size: 0.66rem; letter-spacing: 0.06em; text-transform: uppercase;
+    color: #F7E08C; background: rgba(15,12,5,0.78);
+    border: 1px solid rgba(212,175,55,0.45); padding: 5px 11px; border-radius: 20px;
+  }
+  .modal-lock.show { display: inline-flex; }
+  .modal-nav {
+    position: absolute; top: 50%; transform: translateY(-50%); z-index: 5;
+    width: 42px; height: 42px; border-radius: 50%; cursor: pointer;
+    border: 1px solid rgba(212,175,55,0.3); background: rgba(10,10,10,0.6);
+    color: var(--gold); font-size: 1.5rem; line-height: 1;
+    display: flex; align-items: center; justify-content: center;
+    transition: background 0.2s, border-color 0.2s;
+  }
+  .modal-nav:hover { background: rgba(212,175,55,0.2); border-color: var(--gold); }
+  .modal-nav.prev { left: 14px; }
+  .modal-nav.next { right: 14px; }
+  .modal-counter {
+    position: absolute; bottom: 14px; right: 16px; z-index: 4;
+    font-size: 0.72rem; color: var(--txt); letter-spacing: 0.05em;
+    background: rgba(10,10,10,0.65); padding: 4px 10px; border-radius: 14px;
+    border: 1px solid var(--border);
+  }
+  .modal-body { padding: 24px 30px 28px; overflow-y: auto; }
+  .modal-title {
+    font-family: var(--font-head); font-size: 1.6rem; color: var(--gold);
+    margin: 12px 0 12px; line-height: 1.25;
+  }
+  .modal-desc { font-size: 0.95rem; color: var(--txt-muted); line-height: 1.65; margin-bottom: 16px; }
+  .modal-actions {
+    display: flex; align-items: center; justify-content: space-between;
+    gap: 20px; margin-top: 22px; flex-wrap: wrap;
+  }
+  .modal-dots { display: flex; gap: 8px; }
+  .modal-dots span {
+    width: 8px; height: 8px; border-radius: 50%; background: var(--border); cursor: pointer;
+    transition: background 0.2s, transform 0.2s;
+  }
+  .modal-dots span.active { background: var(--gold); transform: scale(1.25); }
+  .modal-note { font-size: 0.78rem; color: var(--txt-muted); margin-top: 16px; opacity: 0.85; }
+  body.modal-open { overflow: hidden; }
+
+  /* ─── MODAL TRAYECTORIA (timeline) ──────────────────────── */
+  .traj-head {
+    display: flex; align-items: center; gap: 18px;
+    padding: 26px 30px 20px; border-bottom: 1px solid var(--border);
+  }
+  .traj-photo {
+    width: 64px; height: 64px; border-radius: 50%; flex-shrink: 0;
+    background-image: var(--photo); background-size: cover; background-position: center 25%;
+    border: 1.5px solid rgba(212,175,55,0.6);
+  }
+  .traj-head h3 {
+    font-family: var(--font-head); color: var(--gold); font-size: 1.3rem; line-height: 1.2;
+  }
+  .traj-head p { font-size: 0.82rem; color: var(--txt-muted); margin-top: 3px; }
+  .traj-tabs { display: flex; gap: 8px; padding: 18px 30px 0; }
+  .traj-tab {
+    font-family: var(--font-body); font-size: 0.82rem; font-weight: 600; letter-spacing: 0.04em;
+    color: var(--txt-muted); background: transparent; cursor: pointer;
+    border: 1px solid var(--border); padding: 8px 16px; border-radius: 20px;
+    transition: color 0.2s, border-color 0.2s, background 0.2s;
+  }
+  .traj-tab:hover { color: var(--txt); }
+  .traj-tab.active { color: var(--bg); background: var(--gold); border-color: var(--gold); }
+  .timeline { padding: 22px 30px 30px; position: relative; }
+  .tl-item { position: relative; padding: 0 0 26px 28px; }
+  .tl-item::before {
+    content: ''; position: absolute; left: 5px; top: 6px; bottom: -6px; width: 1px;
+    background: linear-gradient(180deg, var(--gold-dim), rgba(212,175,55,0.05));
+  }
+  .tl-item:last-child::before { display: none; }
+  .tl-dot {
+    position: absolute; left: 0; top: 4px; width: 11px; height: 11px; border-radius: 50%;
+    background: var(--gold); box-shadow: 0 0 0 3px rgba(212,175,55,0.15);
+  }
+  .tl-dot.now { background: var(--accent); box-shadow: 0 0 0 3px rgba(255,107,53,0.2); }
+  .tl-date {
+    font-size: 0.72rem; letter-spacing: 0.05em; text-transform: uppercase;
+    color: var(--accent); margin-bottom: 3px;
+  }
+  .tl-role { font-family: var(--font-head); color: var(--txt); font-size: 1.02rem; }
+  .tl-org { font-size: 0.84rem; color: var(--gold); margin: 1px 0 5px; }
+  .tl-desc { font-size: 0.84rem; color: var(--txt-muted); line-height: 1.55; }
+  .tl-badge {
+    display: inline-block; font-size: 0.62rem; font-weight: 700; letter-spacing: 0.05em;
+    text-transform: uppercase; color: var(--gold); border: 1px solid var(--gold-dim);
+    padding: 1px 7px; border-radius: 10px; margin-left: 8px; vertical-align: middle;
+  }
+
+  /* ─── RESPONSIVE ─────────────────────────────────────── */
+  @media (max-width: 1024px) {
+    .projects-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+  @media (max-width: 768px) {
+    #navbar { padding: 0 24px; }
+    .nav-links { display: none; }
+    .hero-inner { padding: 110px 24px 60px; }
+    .aurora { filter: blur(45px); }
+    .hero-badge { top: 70px; right: 24px; font-size: 0.65rem; }
+    #stats { padding: 40px 24px; }
+    #projects { padding: 60px 24px; }
+    .projects-grid { grid-template-columns: 1fr; }
+    .about-inner { grid-template-columns: 1fr; gap: 40px; }
+    #about { padding: 60px 24px; }
+    #cta-final { padding: 60px 24px; }
+    #footer { padding: 24px; }
+    #cursor, #cursor-ring { display: none; }
+    html { cursor: auto; }
+    .modal-overlay { padding: 14px; }
+    .modal-body { padding: 20px 20px 24px; }
+    .modal-title { font-size: 1.3rem; }
+  }
+</style>
+</head>
+<body>
+
+<!-- Progress bar -->
+<div id="progress-bar"></div>
+
+<!-- Custom cursor -->
+<div id="cursor"></div>
+<div id="cursor-ring"></div>
+
+<!-- ═══ NAVBAR ═══════════════════════════════════════════ -->
+<nav id="navbar">
+  <div class="nav-logo"><span class="nav-avatar"></span>Miguel Ángel Arriaga</div>
+  <div class="nav-links">
+    <a href="#projects">Proyectos</a>
+    <a href="#about">Sobre mí</a>
+    <a href="mailto:miguelarriaga@hotmail.com">Contactar</a>
+  </div>
+</nav>
+
+<!-- ═══ HERO ══════════════════════════════════════════════ -->
+<section id="hero">
+  <canvas id="particles-canvas"></canvas>
+  <div class="hero-veil"></div>
+
+  <div class="hero-badge">Las Palmas de Gran Canaria · 2026</div>
+
+  <div class="hero-inner" id="hero-inner">
+    <p class="hero-kicker">Portfolio Digital</p>
+    <h1 class="hero-title">
+      <span class="reveal-line"><span>Productos Digitales</span></span>
+      <span class="reveal-line"><span class="gold-text">que Ejecutan.</span></span>
+    </h1>
+    <p class="hero-sub">12 proyectos reales. Clientes reales. Resultados medibles.</p>
+    <div class="hero-ctas">
+      <a href="#projects" class="btn-primary">Ver Proyectos →</a>
+      <a href="mailto:miguelarriaga@hotmail.com" class="btn-ghost">Contactar</a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ STATS ══════════════════════════════════════════════ -->
+<section id="stats">
+  <div class="stats-inner">
+    <div class="stat-item">
+      <span class="stat-number" data-target="12" data-suffix="">0</span>
+      <span class="stat-label">Proyectos</span>
+    </div>
+    <div class="stat-item">
+      <span class="stat-number" data-target="6" data-suffix="">0</span>
+      <span class="stat-label">Industrias</span>
+    </div>
+    <div class="stat-item">
+      <span class="stat-number" data-target="2" data-suffix="+ años">0</span>
+      <span class="stat-label">Experiencia digital</span>
+    </div>
+    <div class="stat-item">
+      <span class="stat-number" data-target="2024" data-suffix="–2026">0</span>
+      <span class="stat-label">Período</span>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ PROJECTS ═══════════════════════════════════════════ -->
+<section id="projects" style="padding: 100px 48px;">
+  <div style="max-width:1200px; margin:0 auto;">
+    <div class="section-header">
+      <p class="section-kicker">Trabajo real</p>
+      <h2 class="section-title">Lo que he construido</h2>
+    </div>
+
+    <div class="projects-grid" id="projects-grid">
+
+      <!-- 1 · BOIM -->
+      <div class="project-card">
+        <div class="card-img-wrap">
+          <img src="portfolio-assets-miguel-arriaga/portfolio-assets/00-BOIM-hero.png" alt="BOIM Football Boutique" loading="lazy">
+        </div>
+        <div class="card-body">
+          <span class="card-badge">Branding + Web Premium</span>
+          <h3 class="card-name">BOIM Football Boutique</h3>
+          <p class="card-desc">Agencia de representación deportiva de élite. Identidad visual, dossiers de jugadores y estrategia digital.</p>
+          <p class="card-highlight">€47.2M valor portfolio representado</p>
+          <div class="card-stack">
+            <span class="pill">HTML</span><span class="pill">CSS</span><span class="pill">Diseño de marca</span><span class="pill">Netlify</span>
+          </div>
+          <a href="https://boim-boutique.netlify.app/" target="_blank" rel="noopener" class="card-cta">Ver proyecto →</a>
+        </div>
+      </div>
+
+      <!-- 2 · Escuela de Ejecución -->
+      <div class="project-card">
+        <div class="card-img-wrap">
+          <img src="portfolio-assets-miguel-arriaga/portfolio-assets/02-EscuelaEjecucion-landing.png" alt="Escuela de Ejecución" loading="lazy">
+        </div>
+        <div class="card-body">
+          <span class="card-badge">Plataforma Educativa + SaaS</span>
+          <h3 class="card-name">Escuela de Ejecución</h3>
+          <p class="card-desc">Academia de coaching mental para traders. Dashboard con Duoracha, Diario de Trading, Backtesting y Meditaciones.</p>
+          <p class="card-highlight">5 módulos de entrenamiento mental para traders</p>
+          <div class="card-stack">
+            <span class="pill">React</span><span class="pill">Supabase</span><span class="pill">Vercel</span><span class="pill">Tailwind</span>
+          </div>
+          <a href="https://escuela-de-ejecucion.vercel.app/" target="_blank" rel="noopener" class="card-cta">Ver proyecto →</a>
+        </div>
+      </div>
+
+      <!-- 3 · EDGECORE Checklist -->
+      <div class="project-card">
+        <div class="card-img-wrap">
+          <img src="portfolio-assets-miguel-arriaga/portfolio-assets/04-EDGECORE-checklist-app.png" alt="EDGECORE Checklist" loading="lazy">
+        </div>
+        <div class="card-body">
+          <span class="card-badge">App SaaS · Checklist Pre-Trading</span>
+          <h3 class="card-name">EDGECORE — App Checklist</h3>
+          <p class="card-desc">Checklist pre-trading de 8 pasos para traders de NAS100. Preparación mental y técnica con registro histórico.</p>
+          <p class="card-highlight">8 fases de preparación antes de operar</p>
+          <div class="card-stack">
+            <span class="pill">React</span><span class="pill">Supabase</span><span class="pill">Lovable</span><span class="pill">Tailwind</span>
+          </div>
+          <a href="https://edgecore-checklist.lovable.app" target="_blank" rel="noopener" class="card-cta">Ver proyecto →</a>
+        </div>
+      </div>
+
+      <!-- 4 · EDGECORE SaaS -->
+      <div class="project-card">
+        <div class="card-img-wrap">
+          <img src="portfolio-assets-miguel-arriaga/portfolio-assets/06-EDGECORE-SaaS-dashboard.png" alt="EDGECORE SaaS" loading="lazy">
+        </div>
+        <div class="card-body">
+          <span class="card-badge">SaaS Full Stack · Trading Analytics</span>
+          <h3 class="card-name">EDGECORE — SaaS Full Stack</h3>
+          <p class="card-desc">Plataforma completa de análisis de trading para NAS100. P&L, Win Rate, Equity Curve, X5 Simulator y Flip Rotacional.</p>
+          <p class="card-highlight">$59,000 P&L · 109 operaciones · Modelo M3</p>
+          <div class="card-stack">
+            <span class="pill">React</span><span class="pill">Supabase</span><span class="pill">Auth</span><span class="pill">Dashboard</span>
+          </div>
+          <a href="https://edgecore-nasdaq-trader.lovable.app" target="_blank" rel="noopener" class="card-cta">Ver proyecto →</a>
+        </div>
+      </div>
+
+      <!-- 5 · Quantum Era Landing -->
+      <div class="project-card">
+        <div class="card-img-wrap">
+          <img src="portfolio-assets-miguel-arriaga/portfolio-assets/07-QuantumEra-landing.png" alt="Quantum Era Landing" loading="lazy">
+        </div>
+        <div class="card-body">
+          <span class="card-badge">Landing Page · Academia de Trading</span>
+          <h3 class="card-name">Quantum Era — Landing</h3>
+          <p class="card-desc">Landing de captación para academia de trading profesional de futuros NAS100. Metodología institucional ICT/SMC.</p>
+          <p class="card-highlight">Academia con metodología institucional NQ</p>
+          <div class="card-stack">
+            <span class="pill">React</span><span class="pill">Tailwind</span><span class="pill">Netlify</span><span class="pill">CSS Animations</span>
+          </div>
+          <a href="https://quantumera-academy.com/" target="_blank" rel="noopener" class="card-cta">Ver proyecto →</a>
+        </div>
+      </div>
+
+      <!-- 6 · Quantum Era SaaS -->
+      <div class="project-card">
+        <div class="card-img-wrap">
+          <img src="portfolio-assets-miguel-arriaga/portfolio-assets/08-QuantumEra-SaaS-dashboard.png" alt="Quantum Era SaaS" loading="lazy">
+        </div>
+        <div class="card-body">
+          <span class="card-badge">SaaS Full Stack · Trading Journal</span>
+          <h3 class="card-name">Quantum Era — SaaS Full Stack</h3>
+          <p class="card-desc">Plataforma SaaS completa con journal de trading, análisis estadístico, cuentas fondeadas y backtesting.</p>
+          <p class="card-highlight">$180K P&L · 519 operaciones · Win Rate 45.3%</p>
+          <div class="card-stack">
+            <span class="pill">React</span><span class="pill">Supabase</span><span class="pill">Full Auth</span><span class="pill">Multi-cuenta</span>
+          </div>
+          <a href="https://quantum-era.lovable.app" target="_blank" rel="noopener" class="card-cta">Ver proyecto →</a>
+        </div>
+      </div>
+
+      <!-- 7 · Croquetas Web -->
+      <div class="project-card">
+        <div class="card-img-wrap">
+          <img src="portfolio-assets-miguel-arriaga/portfolio-assets/09-Croquetas-landing.png" alt="Las Croquetas de María" loading="lazy">
+        </div>
+        <div class="card-body">
+          <span class="card-badge">Landing Page · E-commerce Artesanal</span>
+          <h3 class="card-name">Las Croquetas de María — Web</h3>
+          <p class="card-desc">Web de marca artesanal premium para negocio familiar en Las Palmas. Hero fotográfico, catálogo y sistema de pedidos.</p>
+          <p class="card-highlight">Marca artesanal premium — Las Palmas de GC</p>
+          <div class="card-stack">
+            <span class="pill">React</span><span class="pill">Tailwind</span><span class="pill">Netlify</span><span class="pill">Diseño editorial</span>
+          </div>
+          <a href="https://lascroquetasdemaria.netlify.app/" target="_blank" rel="noopener" class="card-cta">Ver proyecto →</a>
+        </div>
+      </div>
+
+      <!-- 8 · Croquetas ERP -->
+      <div class="project-card">
+        <div class="card-img-wrap">
+          <img src="portfolio-assets-miguel-arriaga/portfolio-assets/11-Croquetas-ERP-dashboard.png" alt="Croquetas ERP" loading="lazy">
+        </div>
+        <div class="card-body">
+          <span class="card-badge">ERP Artesanal · Gestión Integral</span>
+          <h3 class="card-name">Las Croquetas de María — ERP</h3>
+          <p class="card-desc">ERP completo: escandallos, ingredientes, compras, producción por lotes, ventas e informes de rentabilidad.</p>
+          <p class="card-highlight">ERP con escandallos, producción y ventas integradas</p>
+          <div class="card-stack">
+            <span class="pill">React</span><span class="pill">Supabase</span><span class="pill">Full Auth</span><span class="pill">Lovable</span>
+          </div>
+          <a href="https://erp-croquetasdemaria.lovable.app" target="_blank" rel="noopener" class="card-cta">Ver proyecto →</a>
+        </div>
+      </div>
+
+      <!-- 9 · Miguel Ángel Web -->
+      <div class="project-card">
+        <div class="card-img-wrap">
+          <img src="portfolio-assets-miguel-arriaga/portfolio-assets/12-MiguelArriaga-web.png" alt="Miguel Ángel Arriaga Web" loading="lazy">
+        </div>
+        <div class="card-body">
+          <span class="card-badge">Personal Brand · Hub Digital</span>
+          <h3 class="card-name">Miguel Ángel Arriaga — Web Personal</h3>
+          <p class="card-desc">Web de marca personal que consolida CEO de MAIA y cofundador de Quantum Era. Hub central de autoridad profesional.</p>
+          <p class="card-highlight">Hub central de marca personal — CEO & Trader</p>
+          <div class="card-stack">
+            <span class="pill">React</span><span class="pill">Tailwind</span><span class="pill">Lovable</span>
+          </div>
+          <a href="https://miguelarriaga.com/" target="_blank" rel="noopener" class="card-cta">Ver proyecto →</a>
+        </div>
+      </div>
+
+      <!-- 10 · MAIA -->
+      <div class="project-card">
+        <div class="card-img-wrap">
+          <img src="portfolio-assets-miguel-arriaga/portfolio-assets/13-MAIA-landing.png" alt="MAIA Landing" loading="lazy">
+        </div>
+        <div class="card-body">
+          <span class="card-badge">Corporate Web · AI Consultancy</span>
+          <h3 class="card-name">MAIA — Landing Corporativa</h3>
+          <p class="card-desc">Web corporativa para consultoría de IA empresarial. Agentes autónomos que operan y escalan negocios. Bilingüe ES/EN.</p>
+          <p class="card-highlight">Consultoría IA para empresas — Agentes 24/7</p>
+          <div class="card-stack">
+            <span class="pill">React</span><span class="pill">Tailwind</span><span class="pill">Lovable</span><span class="pill">Bilingüe</span>
+          </div>
+          <a href="https://maia-llc.com/" target="_blank" rel="noopener" class="card-cta">Ver proyecto →</a>
+        </div>
+      </div>
+
+      <!-- 11 · Structure Academy -->
+      <div class="project-card">
+        <div class="card-img-wrap">
+          <img src="portfolio-assets-miguel-arriaga/portfolio-assets/14-StructureAcademy-landing.png" alt="Structure Academy" loading="lazy">
+        </div>
+        <div class="card-body">
+          <span class="card-badge">SaaS Full Stack · Academia de Trading</span>
+          <h3 class="card-name">Structure Academy — Landing + SaaS</h3>
+          <p class="card-desc">Plataforma SaaS completa para academia de trading. Landing, auth, dashboard, backtesting y panel admin incluido.</p>
+          <p class="card-highlight">$74K P&L · 316 operaciones · Panel Admin</p>
+          <div class="card-stack">
+            <span class="pill">React</span><span class="pill">Supabase</span><span class="pill">Vercel</span><span class="pill">Panel Admin</span>
+          </div>
+          <a href="https://saas-structureacademy.vercel.app/" target="_blank" rel="noopener" class="card-cta">Ver proyecto →</a>
+        </div>
+      </div>
+
+      <!-- 12 · Cashtor Mentor -->
+      <div class="project-card">
+        <div class="card-img-wrap">
+          <img src="portfolio-assets-miguel-arriaga/portfolio-assets/17-CashtorMentor-dashboard.png" alt="The Cashtor Mentor" loading="lazy">
+        </div>
+        <div class="card-body">
+          <span class="card-badge">SaaS Full Stack · Trading Mentor</span>
+          <h3 class="card-name">The Cashtor Mentor</h3>
+          <p class="card-desc">Plataforma de mentoría de trading con sistema de niveles gamificado. Multi-cuenta con brokers reales integrados.</p>
+          <p class="card-highlight">Win Rate 70% · Profit Factor 4.70 · Gamificación</p>
+          <div class="card-stack">
+            <span class="pill">React</span><span class="pill">Supabase</span><span class="pill">Lovable</span><span class="pill">Gamificación</span>
+          </div>
+          <a href="https://thecashtormentor.lovable.app" target="_blank" rel="noopener" class="card-cta">Ver proyecto →</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══ ABOUT ═══════════════════════════════════════════════ -->
+<section id="about">
+  <div class="about-inner">
+    <div class="about-left" data-parallax>
+      <p class="section-kicker">El constructor</p>
+      <h2 class="section-title">Quién construye<br>todo esto</h2>
+      <div class="about-photo-wrap">
+        <div class="about-photo" role="img" aria-label="Retrato de Miguel Ángel Arriaga"></div>
+      </div>
+      <p class="about-name">Miguel Ángel Arriaga Bringas</p>
+      <p class="about-tagline">Disciplina · Proceso · Consistencia</p>
+    </div>
+    <div class="about-right">
+      <p>No soy un freelancer de fiverr. Soy un ejecutivo con <strong>+18 años dirigiendo equipos</strong>, que opera mercados financieros en tiempo real y construye productos digitales desde cero con criterio de negocio.</p>
+      <div class="about-items">
+        <div class="about-item"><strong>CEO de MAIA</strong> — Consultoría de IA empresarial</div>
+        <div class="about-item"><strong>Cofundador de Quantum Era</strong> — Academia de trading profesional</div>
+        <div class="about-item"><strong>Trader NQ/NAS100</strong> — $1.2M capital fondeado · 21 cuentas</div>
+        <div class="about-item"><strong>+18 años en dirección operativa</strong> — Equipos, compras y F&B internacional</div>
+        <div class="about-item"><strong>7 titulaciones</strong> — MBA Real Madrid · Manchester (UK) · ESADE</div>
+        <div class="about-item"><strong>Las Palmas de Gran Canaria</strong> — Disponible global</div>
+      </div>
+      <button class="about-cta" id="openTrajectory">Ver mi trayectoria completa →</button>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ CTA FINAL ════════════════════════════════════════════ -->
+<section id="cta-final">
+  <div class="cta-inner">
+    <p class="section-kicker" style="justify-content:center;">¿Trabajamos juntos?</p>
+    <h2 class="cta-title">¿Tienes un proyecto que necesita ejecución real?</h2>
+    <p class="cta-sub">No código genérico. Productos que funcionan.</p>
+    <a href="mailto:maiallc@proton.me" class="btn-primary" style="display:inline-flex; margin:0 auto;">Hablemos →</a>
+  </div>
+</section>
+
+<!-- ═══ MODAL "VER POR DENTRO" ════════════════════════════════ -->
+<div class="modal-overlay" id="modal" aria-hidden="true">
+  <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modalName">
+    <button class="modal-close" id="modalClose" aria-label="Cerrar">✕</button>
+    <div class="modal-media">
+      <span class="modal-lock" id="modalLock">🔒 Producto privado</span>
+      <img id="modalImg" src="" alt="">
+      <button class="modal-nav prev" id="modalPrev" aria-label="Anterior">‹</button>
+      <button class="modal-nav next" id="modalNext" aria-label="Siguiente">›</button>
+      <div class="modal-counter" id="modalCounter">1 / 1</div>
+    </div>
+    <div class="modal-body">
+      <span class="card-badge" id="modalCat"></span>
+      <h3 class="modal-title" id="modalName"></h3>
+      <p class="modal-desc" id="modalDesc"></p>
+      <p class="card-highlight" id="modalHighlight"></p>
+      <div class="card-stack" id="modalStack"></div>
+      <div class="modal-actions">
+        <a class="btn-primary" id="modalVisit" href="#" target="_blank" rel="noopener">Visitar web →</a>
+        <div class="modal-dots" id="modalDots"></div>
+      </div>
+      <p class="modal-note" id="modalNote"></p>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ MODAL TRAYECTORIA ═════════════════════════════════════ -->
+<div class="modal-overlay" id="trajectory" aria-hidden="true">
+  <div class="modal" role="dialog" aria-modal="true" aria-labelledby="trajName">
+    <button class="modal-close" id="trajClose" aria-label="Cerrar">✕</button>
+    <div class="traj-head">
+      <div class="traj-photo" role="img" aria-label="Retrato de Miguel Ángel Arriaga"></div>
+      <div>
+        <h3 id="trajName">Miguel Ángel Arriaga Bringas</h3>
+        <p>CEO · Consultor de IA · Trader Profesional NAS100 · Las Palmas de Gran Canaria</p>
+      </div>
+    </div>
+    <div class="traj-tabs">
+      <button class="traj-tab active" data-tab="exp">Experiencia</button>
+      <button class="traj-tab" data-tab="edu">Formación</button>
+    </div>
+    <div class="timeline" id="trajBody"></div>
+  </div>
+</div>
+
+<!-- ═══ FOOTER ════════════════════════════════════════════════ -->
+<footer id="footer">
+  © 2026 <strong>Miguel Ángel Arriaga</strong> · MAIA · Disciplina · Proceso · Consistencia
+</footer>
+
+<!-- ═══════════════ SCRIPTS ═══════════════════════════════════ -->
+<script>
+/* ── Cursor ────────────────────────────────────────────────── */
+const cursor = document.getElementById('cursor');
+const cursorRing = document.getElementById('cursor-ring');
+let mx = 0, my = 0, rx = 0, ry = 0;
+document.addEventListener('mousemove', e => { mx = e.clientX; my = e.clientY; });
+(function animCursor() {
+  rx += (mx - rx) * 0.18;
+  ry += (my - ry) * 0.18;
+  cursor.style.left = mx + 'px'; cursor.style.top = my + 'px';
+  cursorRing.style.left = rx + 'px'; cursorRing.style.top = ry + 'px';
+  requestAnimationFrame(animCursor);
+})();
+
+/* ── Scroll progress ───────────────────────────────────────── */
+const bar = document.getElementById('progress-bar');
+window.addEventListener('scroll', () => {
+  const s = document.documentElement.scrollTop;
+  const h = document.documentElement.scrollHeight - window.innerHeight;
+  bar.style.width = (s / h * 100) + '%';
+}, { passive: true });
+
+/* ── Navbar scroll ─────────────────────────────────────────── */
+const nav = document.getElementById('navbar');
+window.addEventListener('scroll', () => {
+  nav.classList.toggle('scrolled', window.scrollY > 40);
+}, { passive: true });
+
+/* ── Mouse parallax on hero (texto opuesto al cursor) ──────── */
+const heroInner = document.getElementById('hero-inner');
+document.addEventListener('mousemove', e => {
+  const nx = e.clientX / window.innerWidth - 0.5;
+  const ny = e.clientY / window.innerHeight - 0.5;
+  heroInner.style.transform = `translate(${nx * -10}px, ${ny * -7}px)`;
+});
+
+/* ── Constelación de nodos (red interactiva, nítida) ───────── */
+(function constellation() {
+  const canvas = document.getElementById('particles-canvas');
+  const ctx = canvas.getContext('2d');
+  const hero = document.getElementById('hero');
+  const DPR = Math.min(window.devicePixelRatio || 1, 2);
+  const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const LINK = 145;        // distancia de enlace entre nodos
+  const MOUSE_LINK = 210;  // distancia de enlace al cursor
+  const REPEL = 115;       // radio de repulsión del cursor
+  let W, H, nodes, stars;
+  const mouse = { x: -9999, y: -9999, active: false };
+
+  function resize() {
+    W = canvas.offsetWidth; H = canvas.offsetHeight;
+    canvas.width = W * DPR; canvas.height = H * DPR;
+    ctx.setTransform(DPR, 0, 0, DPR, 0, 0);
+  }
+  function density() {
+    return Math.round(Math.min(120, Math.max(45, (W * H) / 14000)));
+  }
+  function init() {
+    nodes = Array.from({ length: density() }, () => ({
+      x: Math.random() * W, y: Math.random() * H,
+      vx: reduce ? 0 : (Math.random() - 0.5) * 0.35,
+      vy: reduce ? 0 : (Math.random() - 0.5) * 0.35,
+      r: Math.random() * 1.4 + 0.8
+    }));
+    // Estrellas plateadas: pocas y bien repartidas (1 cada ~70k px²)
+    const starCount = Math.round(Math.min(22, Math.max(7, (W * H) / 70000)));
+    stars = Array.from({ length: starCount }, () => ({
+      x: Math.random() * W, y: Math.random() * H,
+      r: 1.0 + Math.random() * 1.3,
+      phase: Math.random() * Math.PI * 2,
+      twSpeed: 0.5 + Math.random() * 0.8,   // velocidad del titileo base
+      flareStart: -9999, flareDur: 0          // destello ocasional
+    }));
+  }
+  function draw() {
+    const now = performance.now();
+    const t = now * 0.001;
+    ctx.clearRect(0, 0, W, H);
+
+    // mover nodos + repulsión suave del cursor
+    for (const n of nodes) {
+      n.x += n.vx; n.y += n.vy;
+      if (n.x < 0 || n.x > W) n.vx *= -1;
+      if (n.y < 0 || n.y > H) n.vy *= -1;
+      if (mouse.active) {
+        const dx = n.x - mouse.x, dy = n.y - mouse.y;
+        const d = Math.hypot(dx, dy);
+        if (d < REPEL && d > 0.1) {
+          const f = (REPEL - d) / REPEL * 0.6;
+          n.x += (dx / d) * f; n.y += (dy / d) * f;
+        }
+      }
+    }
+
+    // líneas entre nodos vecinos
+    for (let i = 0; i < nodes.length; i++) {
+      const a = nodes[i];
+      for (let j = i + 1; j < nodes.length; j++) {
+        const b = nodes[j];
+        const dx = a.x - b.x, dy = a.y - b.y;
+        const d = Math.hypot(dx, dy);
+        if (d < LINK) {
+          ctx.globalAlpha = (1 - d / LINK) * 0.34;
+          ctx.strokeStyle = '#D4AF37';
+          ctx.lineWidth = 0.7;
+          ctx.beginPath();
+          ctx.moveTo(a.x, a.y); ctx.lineTo(b.x, b.y);
+          ctx.stroke();
+        }
+      }
+      // enlaces vivos al cursor (naranja)
+      if (mouse.active) {
+        const dx = a.x - mouse.x, dy = a.y - mouse.y;
+        const d = Math.hypot(dx, dy);
+        if (d < MOUSE_LINK) {
+          ctx.globalAlpha = (1 - d / MOUSE_LINK) * 0.6;
+          ctx.strokeStyle = '#FF6B35';
+          ctx.lineWidth = 0.9;
+          ctx.beginPath();
+          ctx.moveTo(a.x, a.y); ctx.lineTo(mouse.x, mouse.y);
+          ctx.stroke();
+        }
+      }
+    }
+
+    // nodos (puntos nítidos; los cercanos al cursor se encienden)
+    ctx.globalAlpha = 1;
+    for (const n of nodes) {
+      const near = mouse.active && Math.hypot(n.x - mouse.x, n.y - mouse.y) < MOUSE_LINK;
+      ctx.beginPath();
+      ctx.arc(n.x, n.y, n.r, 0, Math.PI * 2);
+      ctx.fillStyle = near ? '#FF8A5C' : '#D4AF37';
+      ctx.fill();
+    }
+
+    // ── Estrellas plateadas: titileo suave + destello ocasional ──
+    for (const s of stars) {
+      // titileo base (shimmer continuo)
+      const tw = reduce ? 0.7 : 0.4 + 0.6 * (0.5 + 0.5 * Math.sin(t * s.twSpeed + s.phase));
+      // disparar un destello de vez en cuando
+      if (!reduce && now - s.flareStart > s.flareDur && Math.random() < 0.0006) {
+        s.flareStart = now; s.flareDur = 750 + Math.random() * 700;
+      }
+      let flare = 0;
+      const p = (now - s.flareStart) / s.flareDur;
+      if (p >= 0 && p <= 1) flare = Math.sin(p * Math.PI);
+      const bright = Math.min(1, tw + flare * 0.9);
+
+      // halo plateado MUY ajustado (no es glow difuso, es brillo de estrella)
+      const haloR = s.r * (3.2 + flare * 4);
+      const g = ctx.createRadialGradient(s.x, s.y, 0, s.x, s.y, haloR);
+      g.addColorStop(0, `rgba(255,255,255,${0.85 * bright})`);
+      g.addColorStop(0.35, `rgba(214,224,242,${0.30 * bright})`);
+      g.addColorStop(1, 'rgba(214,224,242,0)');
+      ctx.globalAlpha = 1;
+      ctx.fillStyle = g;
+      ctx.beginPath(); ctx.arc(s.x, s.y, haloR, 0, Math.PI * 2); ctx.fill();
+
+      // núcleo blanco nítido
+      ctx.fillStyle = `rgba(255,255,255,${bright})`;
+      ctx.beginPath(); ctx.arc(s.x, s.y, s.r * (0.65 + 0.35 * bright), 0, Math.PI * 2); ctx.fill();
+
+      // puntas de estrella solo durante el destello (el "toque llamativo")
+      if (flare > 0.12) {
+        const L = s.r * (4 + flare * 9);
+        ctx.strokeStyle = `rgba(255,255,255,${0.65 * flare})`;
+        ctx.lineWidth = 0.8;
+        ctx.beginPath();
+        ctx.moveTo(s.x - L, s.y); ctx.lineTo(s.x + L, s.y);
+        ctx.moveTo(s.x, s.y - L); ctx.lineTo(s.x, s.y + L);
+        ctx.stroke();
+      }
+    }
+    ctx.globalAlpha = 1;
+
+    requestAnimationFrame(draw);
+  }
+
+  hero.addEventListener('mousemove', e => {
+    const r = hero.getBoundingClientRect();
+    mouse.x = e.clientX - r.left; mouse.y = e.clientY - r.top; mouse.active = true;
+  });
+  hero.addEventListener('mouseleave', () => { mouse.active = false; mouse.x = mouse.y = -9999; });
+
+  resize(); init(); draw();
+  window.addEventListener('resize', () => { resize(); init(); });
+})();
+
+/* ── Count-up stats ────────────────────────────────────────── */
+(function countUp() {
+  const els = document.querySelectorAll('.stat-number[data-target]');
+  const obs = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (!e.isIntersecting) return;
+      obs.unobserve(e.target);
+      const el = e.target;
+      const target = +el.dataset.target;
+      const suffix = el.dataset.suffix || '';
+      const duration = 1400;
+      const start = performance.now();
+      const startVal = target > 100 ? target - 120 : 0;
+      function step(now) {
+        const progress = Math.min((now - start) / duration, 1);
+        const ease = 1 - Math.pow(1 - progress, 3);
+        const val = Math.round(startVal + (target - startVal) * ease);
+        el.textContent = val + suffix;
+        if (progress < 1) requestAnimationFrame(step);
+        else el.textContent = target + suffix;
+      }
+      requestAnimationFrame(step);
+    });
+  }, { threshold: 0.5 });
+  els.forEach(el => obs.observe(el));
+})();
+
+/* ── Scroll-reveal cards with stagger ─────────────────────── */
+(function scrollReveal() {
+  const cards = document.querySelectorAll('.project-card');
+  const obs = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (!e.isIntersecting) return;
+      obs.unobserve(e.target);
+      const idx = +e.target.dataset.idx;
+      setTimeout(() => {
+        e.target.style.transition = `opacity 0.6s ease, transform 0.6s cubic-bezier(0.23,1,0.32,1)`;
+        e.target.classList.add('revealed');
+      }, idx * 80);
+    });
+  }, { threshold: 0.1, rootMargin: '0px 0px -60px 0px' });
+  cards.forEach((c, i) => { c.dataset.idx = i; obs.observe(c); });
+})();
+
+/* ── 3D card tilt ──────────────────────────────────────────── */
+document.querySelectorAll('.project-card').forEach(card => {
+  card.addEventListener('mousemove', e => {
+    const r = card.getBoundingClientRect();
+    const x = (e.clientX - r.left) / r.width - 0.5;
+    const y = (e.clientY - r.top) / r.height - 0.5;
+    card.style.transform = `rotateY(${x * 8}deg) rotateX(${-y * 6}deg) translateY(-8px)`;
+  });
+  card.addEventListener('mouseleave', () => {
+    card.style.transform = '';
+  });
+});
+
+/* ── Datos de proyectos + Modal "Ver por dentro" ───────────── */
+(function projectModal() {
+  const IMG = 'portfolio-assets-miguel-arriaga/portfolio-assets/';
+  // Orden idéntico al de las tarjetas en el grid (1→12)
+  const PROJECTS = [
+    { name:'BOIM Football Boutique', cat:'Branding + Web Premium', url:'https://boim-boutique.netlify.app/', gated:false,
+      desc:'Agencia de representación deportiva de élite. Identidad visual, dossiers de jugadores y estrategia digital. Portfolio: Alberto Moleiro €40M, Ayoze Pérez €6M, Loïc Williams €1.2M.',
+      highlight:'€47.2M valor portfolio representado', stack:['HTML','CSS','Diseño de marca','Netlify'],
+      imgs:['00-BOIM-hero.png','01-BOIM-talentos.png'] },
+    { name:'Escuela de Ejecución', cat:'Plataforma Educativa + SaaS', url:'https://escuela-de-ejecucion.vercel.app/', gated:true,
+      desc:'Academia de coaching mental para traders. Dashboard con herramientas: Duoracha, Diario de Trading, Backtesting, Planificación Semanal y Meditaciones.',
+      highlight:'5 módulos de entrenamiento mental para traders', stack:['React','Supabase','Vercel','Tailwind'],
+      imgs:['02-EscuelaEjecucion-landing.png','03-EscuelaEjecucion-dashboard.png'] },
+    { name:'EDGECORE — App Checklist', cat:'App SaaS · Checklist Pre-Trading', url:'https://edgecore-checklist.lovable.app', gated:true,
+      desc:'Checklist pre-trading de 8 pasos para traders de NAS100. Sistema de preparación mental y técnica con registro histórico y estadísticas por sesión.',
+      highlight:'8 fases de preparación antes de operar', stack:['React','Supabase','Lovable','Tailwind'],
+      imgs:['04-EDGECORE-checklist-app.png'] },
+    { name:'EDGECORE — SaaS Full Stack', cat:'SaaS Full Stack · Trading Analytics', url:'https://edgecore-nasdaq-trader.lovable.app', gated:true,
+      desc:'Plataforma completa de análisis de trading para NAS100/Nasdaq 100. Dashboard con P&L, Win Rate, Equity Curve, Backtesting, X5 Simulator, Flip Rotacional y Checklist integrado.',
+      highlight:'$59,000 P&L · 109 operaciones · Modelo M3', stack:['React','Supabase','Auth','Dashboard'],
+      imgs:['05-EDGECORE-SaaS-auth.png','06-EDGECORE-SaaS-dashboard.png'] },
+    { name:'Quantum Era — Landing', cat:'Landing Page · Academia de Trading', url:'https://quantumera-academy.com/', gated:false,
+      desc:'Landing de captación para academia de trading profesional de futuros NAS100. Metodología institucional ICT/SMC. Con partículas animadas y esfera 3D interactiva.',
+      highlight:'Academia con metodología institucional NQ', stack:['React','Tailwind','Netlify','CSS Animations'],
+      imgs:['07-QuantumEra-landing.png'] },
+    { name:'Quantum Era — SaaS Full Stack', cat:'SaaS Full Stack · Trading Journal', url:'https://quantum-era.lovable.app', gated:true,
+      desc:'Plataforma SaaS completa con journal de trading, análisis estadístico, cuentas fondeadas, backtesting, racha tracker, optimización y simulaciones.',
+      highlight:'$180K P&L · 519 operaciones · Win Rate 45.3%', stack:['React','Supabase','Full Auth','Multi-cuenta'],
+      imgs:['08-QuantumEra-SaaS-dashboard.png'] },
+    { name:'Las Croquetas de María — Web', cat:'Landing Page · E-commerce Artesanal', url:'https://lascroquetasdemaria.netlify.app/', gated:false,
+      desc:'Web de marca artesanal con identidad premium para negocio familiar de croquetas en Las Palmas de Gran Canaria. Hero fotográfico full-screen, catálogo y sistema de pedidos.',
+      highlight:'Marca artesanal premium — Las Palmas de Gran Canaria', stack:['React','Tailwind','Netlify','Diseño editorial'],
+      imgs:['09-Croquetas-landing.png'] },
+    { name:'Las Croquetas de María — ERP', cat:'ERP Artesanal · Gestión Integral', url:'https://erp-croquetasdemaria.lovable.app', gated:true,
+      desc:'ERP completo para negocio artesanal: escandallos, ingredientes, compras, producción por lotes, ventas e informes de rentabilidad. Gestión integral para F&B.',
+      highlight:'ERP con escandallos, producción, compras y ventas', stack:['React','Supabase','Full Auth','Lovable'],
+      imgs:['10-Croquetas-ERP-auth.png','11-Croquetas-ERP-dashboard.png'] },
+    { name:'Miguel Ángel Arriaga — Web Personal', cat:'Personal Brand · Hub Digital', url:'https://miguelarriaga.com/', gated:false,
+      desc:'Web de marca personal que consolida CEO de MAIA y cofundador de Quantum Era. Disciplina · Proceso · Consistencia. Hub central de autoridad profesional.',
+      highlight:'Hub central de marca personal — CEO & Trader', stack:['React','Tailwind','Lovable'],
+      imgs:['12-MiguelArriaga-web.png'] },
+    { name:'MAIA — Landing Corporativa', cat:'Corporate Web · AI Consultancy', url:'https://maia-llc.com/', gated:false,
+      desc:'Web corporativa para consultoría de IA empresarial. Agentes autónomos que operan y escalan negocios. Sistemas de IA 24/7 con resultados medibles desde el primer mes.',
+      highlight:'Consultoría IA para empresas — Agentes 24/7', stack:['React','Tailwind','Lovable','Bilingüe'],
+      imgs:['13-MAIA-landing.png'] },
+    { name:'Structure Academy — Landing + SaaS', cat:'SaaS Full Stack · Academia de Trading', url:'https://saas-structureacademy.vercel.app/', gated:true,
+      desc:'Plataforma SaaS completa para academia de trading. Landing, auth, dashboard con P&L $74K, backtesting, racha tracker, Structure Lab, optimización, simulaciones y panel admin.',
+      highlight:'$74K P&L · 316 operaciones · Panel Admin', stack:['React','Supabase','Vercel','Panel Admin'],
+      imgs:['14-StructureAcademy-landing.png','15-StructureAcademy-auth.png','16-StructureAcademy-dashboard.png'] },
+    { name:'The Cashtor Mentor', cat:'SaaS Full Stack · Trading Mentor', url:'https://thecashtormentor.lovable.app', gated:true,
+      desc:'Plataforma de mentoría de trading con sistema de niveles gamificado. Dashboard con Win Rate 70%, Profit Factor 4.70, Expected Value +$186.75/trade. Multi-cuenta con brokers reales.',
+      highlight:'Win Rate 70% · Profit Factor 4.70 · Gamificación', stack:['React','Supabase','Lovable','Gamificación'],
+      imgs:['17-CashtorMentor-dashboard.png','18-CashtorMentor-auth.png'] },
+  ];
+
+  // refs del modal
+  const modal = document.getElementById('modal');
+  const elImg = document.getElementById('modalImg');
+  const elLock = document.getElementById('modalLock');
+  const elPrev = document.getElementById('modalPrev');
+  const elNext = document.getElementById('modalNext');
+  const elCounter = document.getElementById('modalCounter');
+  const elCat = document.getElementById('modalCat');
+  const elName = document.getElementById('modalName');
+  const elDesc = document.getElementById('modalDesc');
+  const elHl = document.getElementById('modalHighlight');
+  const elStack = document.getElementById('modalStack');
+  const elVisit = document.getElementById('modalVisit');
+  const elDots = document.getElementById('modalDots');
+  const elNote = document.getElementById('modalNote');
+  const elClose = document.getElementById('modalClose');
+
+  let cur = null, idx = 0;
+
+  function renderSlide() {
+    const imgs = cur.imgs;
+    elImg.src = IMG + imgs[idx];
+    elImg.alt = cur.name + ' — captura ' + (idx + 1);
+    elCounter.textContent = (idx + 1) + ' / ' + imgs.length;
+    const many = imgs.length > 1;
+    elPrev.style.display = elNext.style.display = many ? 'flex' : 'none';
+    elCounter.style.display = many ? 'block' : 'none';
+    elDots.querySelectorAll('span').forEach((d, i) => d.classList.toggle('active', i === idx));
+  }
+  function go(n) { idx = (n + cur.imgs.length) % cur.imgs.length; renderSlide(); }
+
+  function open(p) {
+    cur = p; idx = 0;
+    elCat.textContent = p.cat;
+    elName.textContent = p.name;
+    elDesc.textContent = p.desc;
+    elHl.textContent = p.highlight;
+    elStack.innerHTML = p.stack.map(s => '<span class="pill">' + s + '</span>').join('');
+    elVisit.href = p.url;
+    elVisit.textContent = p.gated ? 'Abrir app (requiere acceso) →' : 'Visitar web en vivo →';
+    elLock.classList.toggle('show', p.gated);
+    elNote.textContent = p.gated
+      ? 'Este es un producto real en producción detrás de autenticación privada. Arriba puedes ver capturas reales de su interior; el acceso a la app requiere credenciales.'
+      : 'Sitio público — puedes visitarlo en vivo sin restricciones.';
+    elDots.innerHTML = p.imgs.map(() => '<span></span>').join('');
+    elDots.querySelectorAll('span').forEach((d, i) => d.addEventListener('click', () => go(i)));
+    renderSlide();
+    modal.classList.add('open');
+    modal.setAttribute('aria-hidden', 'false');
+    document.body.classList.add('modal-open');
+  }
+  function close() {
+    modal.classList.remove('open');
+    modal.setAttribute('aria-hidden', 'true');
+    document.body.classList.remove('modal-open');
+  }
+
+  // Cablear cada tarjeta (mismo orden que PROJECTS) + badge + texto CTA
+  document.querySelectorAll('.project-card').forEach((card, i) => {
+    const p = PROJECTS[i];
+    if (!p) return;
+    if (p.gated) {
+      const wrap = card.querySelector('.card-img-wrap');
+      if (wrap) {
+        const lock = document.createElement('span');
+        lock.className = 'card-lock';
+        lock.innerHTML = '🔒 Producto privado';
+        wrap.appendChild(lock);
+      }
+      const cta = card.querySelector('.card-cta');
+      if (cta) cta.textContent = 'Ver por dentro →';
+    }
+    card.addEventListener('click', e => { e.preventDefault(); open(p); });
+  });
+
+  elPrev.addEventListener('click', () => go(idx - 1));
+  elNext.addEventListener('click', () => go(idx + 1));
+  elClose.addEventListener('click', close);
+  modal.addEventListener('click', e => { if (e.target === modal) close(); });
+  document.addEventListener('keydown', e => {
+    if (!modal.classList.contains('open')) return;
+    if (e.key === 'Escape') close();
+    else if (e.key === 'ArrowLeft' && cur && cur.imgs.length > 1) go(idx - 1);
+    else if (e.key === 'ArrowRight' && cur && cur.imgs.length > 1) go(idx + 1);
+  });
+})();
+
+/* ── Modal Trayectoria (línea de tiempo) ───────────────────── */
+(function trajectoryModal() {
+  const EXP = [
+    { date:'2024 — Presente', role:'CEO', org:'Defi & Trading LLC', now:true,
+      desc:'Trading sistemático en NAS100. $1.2M de capital fondeado, 21 cuentas gestionadas y dataset de 497 operaciones registradas.' },
+    { date:'2024 — Presente', role:'Fundador y Consultor de IA', org:'MAIA', now:true,
+      desc:'Consultoría de IA empresarial: agentes autónomos, automatización y sistemas que operan negocios. B2B en España.' },
+    { date:'2023 — Presente', role:'Cofundador', org:'Quantum Era', now:true,
+      desc:'Academia de trading profesional con SaaS propio y metodología cuantitativa institucional (ICT/SMC).' },
+    { date:'2019 — 2020', role:'Consultor Asistente', org:'Delphi Consultores',
+      desc:'Definición de KPIs y proyectos de ahorro operativo para clientes.' },
+    { date:'2003 — 2023', role:'Director de Compras · F&B Manager · Control de Costes', org:'Europe Hotels International',
+      desc:'18 años liderando equipos multidisciplinares en hostelería internacional: negociación, control de costes y operativa.' },
+  ];
+  const EDU = [
+    { date:'2026 — Presente', role:'IA Heroes Super Heroes', org:'Learning Heroes', badge:'En curso', now:true,
+      desc:'Especialización avanzada en inteligencia artificial aplicada.' },
+    { date:'2025 — 2026', role:'Programa Universitario en IA (60 ECTS)', org:'Learning Heroes / Western European University',
+      desc:'Programa universitario completo en inteligencia artificial.' },
+    { date:'2023 — 2024', role:'Máster en Gestión de Activos Financieros', org:'MDTA Academy',
+      desc:'Gestión profesional de carteras y activos financieros.' },
+    { date:'2019 — 2020', role:'MBA — Dirección de Entidades Deportivas', org:'Universidad Europea · Real Madrid',
+      desc:'MBA especializado en dirección de entidades deportivas.' },
+    { date:'2017 — 2019', role:'Máster en Dirección de Restaurantes y F&B', org:'Universidad Rey Juan Carlos', badge:'Cum Laude',
+      desc:'Dirección de restaurantes y food & beverage. Mención Cum Laude.' },
+    { date:'2009', role:'PMD — Programa de Desarrollo Directivo', org:'ESADE Business School',
+      desc:'Programa de desarrollo directivo de una de las escuelas top de Europa.' },
+    { date:'1998 — 2001', role:'Licenciatura en ADE (BA Hons)', org:'Manchester Metropolitan University', badge:'Premio Mike Hynes',
+      desc:'Business Administration con honores. Premio Mike Hynes Memorial.' },
+  ];
+
+  const overlay = document.getElementById('trajectory');
+  const body = document.getElementById('trajBody');
+  const tabs = overlay.querySelectorAll('.traj-tab');
+  const trajClose = document.getElementById('trajClose');
+  const openBtn = document.getElementById('openTrajectory');
+
+  function render(list) {
+    body.innerHTML = list.map(i => `
+      <div class="tl-item">
+        <span class="tl-dot${i.now ? ' now' : ''}"></span>
+        <div class="tl-date">${i.date}</div>
+        <div class="tl-role">${i.role}${i.badge ? `<span class="tl-badge">${i.badge}</span>` : ''}</div>
+        <div class="tl-org">${i.org}</div>
+        <div class="tl-desc">${i.desc}</div>
+      </div>`).join('');
+  }
+  function setTab(name) {
+    tabs.forEach(t => t.classList.toggle('active', t.dataset.tab === name));
+    render(name === 'exp' ? EXP : EDU);
+    body.scrollTop = 0;
+  }
+  function open() {
+    setTab('exp');
+    overlay.classList.add('open'); overlay.setAttribute('aria-hidden', 'false');
+    document.body.classList.add('modal-open');
+  }
+  function close() {
+    overlay.classList.remove('open'); overlay.setAttribute('aria-hidden', 'true');
+    document.body.classList.remove('modal-open');
+  }
+
+  openBtn.addEventListener('click', open);
+  trajClose.addEventListener('click', close);
+  tabs.forEach(t => t.addEventListener('click', () => setTab(t.dataset.tab)));
+  overlay.addEventListener('click', e => { if (e.target === overlay) close(); });
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape' && overlay.classList.contains('open')) close();
+  });
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,14 @@
+# Configuración local de Claude / editor
+.claude/
+.vscode/
+
+# Archivos del sistema operativo
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+.DS_Store
+
+# Temporales
+*.tmp
+*.log
+out.txt
