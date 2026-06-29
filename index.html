@@ -388,11 +388,12 @@
   .about-right strong { color: var(--txt); }
   .about-items { margin-top: 32px; display: flex; flex-direction: column; gap: 14px; }
   .about-item {
-    display: flex; align-items: center; gap: 16px;
-    font-size: 0.9rem;
+    position: relative; padding-left: 18px;
+    font-size: 0.9rem; line-height: 1.5;
   }
   .about-item::before {
-    content: ''; flex-shrink: 0; width: 3px; height: 24px;
+    content: ''; position: absolute; left: 0; top: 0.2em;
+    width: 3px; height: 1.05em;
     background: var(--gold); border-radius: 2px;
   }
   .about-cta {
@@ -545,7 +546,7 @@
   }
   .traj-tab:hover { color: var(--txt); }
   .traj-tab.active { color: var(--bg); background: var(--gold); border-color: var(--gold); }
-  .timeline { padding: 22px 30px 30px; position: relative; }
+  .timeline { padding: 22px 30px 30px; position: relative; flex: 1 1 auto; min-height: 0; overflow-y: auto; }
   .tl-item { position: relative; padding: 0 0 26px 28px; }
   .tl-item::before {
     content: ''; position: absolute; left: 5px; top: 6px; bottom: -6px; width: 1px;
